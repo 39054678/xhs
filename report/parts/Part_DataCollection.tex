@@ -1,0 +1,344 @@
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+\part{Part II: 小红书数据获取与数据处理}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{数据获取与来源}
+
+\section{数据来源}
+小红书内容传播效果的研究高度依赖于高质量、大规模的真实用户笔记数据。为系统分析影响笔记互动表现（如点赞、评论、收藏等）的关键因素，本研究以小红书平台公开发布的用户笔记为主要研究对象，通过自动化数据采集方式构建研究所需的数据集。
+在数据采集过程中，严格遵循相关法律法规及平台使用规范，仅采集用户公开可见的信息，并对涉及用户身份的数据进行脱敏处理，确保数据仅用于学术研究目的。
+\subsection{主要数据源：小红书平台}
+本研究的主要数据来源为小红书平台的公开笔记信息，数据采集覆盖家电与美妆两个典型内容垂直领域。通过对不同领域笔记内容及互动数据的对比分析，探究内容形式、文本特征及用户影响力等因素对笔记传播效果的影响。
+
+数据采集时间范围为2023年1月至2024年8月，共获取约 1,338,527 条有效笔记数据，具有较大的样本规模和较强的统计分析价值。
+
+采集的核心数据字段主要包括以下几类：
+\begin{itemize}
+	\item 笔记元数据：包括笔记唯一标识（ID）、笔记标题、正文内容、话题标签（关键词）、笔记发布时间及发布地点。
+	\item 互动数据：包括笔记的点赞数、评论数和收藏数，用于衡量笔记的传播效果与用户参与度。
+	\item 内容形式特征：包括笔记是否包含图片、是否包含视频及其链接信息，用于分析多媒体内容对传播效果的影响。
+	\item 用户信息：包括博主名称及其粉丝数量，用于刻画发布者影响力水平，并作为后续分析中的控制变量。
+\end{itemize}
+
+% 插入单张图片
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\textwidth]{note_page_fields.pdf}
+    \caption{小红书笔记页面与采集字段示意 }
+    \label{fig:note_page_fields}
+\end{figure}
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.8\textwidth]{user_page_fields.pdf}
+    \caption{用户页面采集字段示意 }
+    \label{fig:user_page_fields}
+\end{figure}
+
+\subsection{数据领域划分方式}
+为保证不同内容领域样本的准确性与可区分性，本研究在数据采集阶段即对内容领域进行前置区分，采用不同访问入口 URL分别获取家电与美妆领域的笔记数据。
+
+其中，家电领域的数据通过平台搜索入口进行采集，基于以“家电”为核心关键词构建的搜索结果页面获取笔记列表；美妆领域的数据则通过平台官方内容频道入口进行采集，直接访问美妆频道对应的内容流页面获取笔记列表。由于不同入口页面在平台内容组织逻辑上已完成领域划分，因此能够在源头上减少跨领域内容混入的情况。
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\textwidth]{JiaDian.pdf}
+    \caption{以“家电”为核心关键词构建的搜索结果页面 }
+    \label{fig:appliance_entry}
+\end{figure}
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.8\textwidth]{CaiZhuan.pdf}
+    \caption{美妆频道对应的内容流页面 }
+    \label{fig:beauty_entry}
+\end{figure}
+
+在具体采集过程中，分别从上述不同入口页面解析并提取笔记唯一标识（ID），再基于笔记 ID 进一步访问笔记详情页获取完整内容信息。通过这种“入口区分—ID 提取—详情采集”的两阶段方式，实现了家电与美妆两个内容领域样本的独立采集与明确区分。
+
+不同领域入口URL设置示例:
+\begin{lstlisting}[language = Python, numbers=left, 
+	numberstyle=\normalsize,keywordstyle=\color{blue!70},showstringspaces=false,
+	commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+	rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+# 本代码仅为过程抽象示例，非实际运行代码。  
+
+# 不同领域入口URL设置
+ENTRY_URLS = {
+    "家电": (
+        "https://www.xiaohongshu.com/search_result/?"
+        "keyword=家电&source=web_explore_feed&type=51"
+    ),
+    "美妆": (
+        "https://www.xiaohongshu.com/explore?"
+        "channel_id=homefeed.cosmetics_v3"
+    )
+}
+def collect_ids_by_field(field_name):
+    """
+    根据领域名称选择不同入口URL
+    """
+    url = ENTRY_URLS[field_name]
+    print(f"当前采集领域：{field_name}")
+    print(f"使用入口：{url}")
+    
+    response = session.get(url, headers=get_headers(), cookies=cookies)
+    soup = BeautifulSoup(response.text, "html.parser")
+    
+    # 后续统一执行ID提取逻辑
+    # ...
+
+# 调用示例
+collect_ids_by_field("家电")
+collect_ids_by_field("美妆")
+
+
+\end{lstlisting}
+
+\subsection{辅助数据源说明}
+本研究未引入任何辅助数据源，如微博热搜、百度指数或第三方社交媒体监测平台的数据。所有分析均基于所采集的小红书平台笔记数据展开。
+通过构建大规模、高维度的原始笔记数据集，直接从平台内部数据中挖掘影响内容传播效果的关键因素，以避免外部数据噪声对分析结果的干扰。
+
+\section{数据采集方法}
+研究采用基于 Python 的自动化网页数据采集方法，对平台公开页面进行结构化解析。
+在采集过程中，通过合理控制请求频率与访问行为，尽量模拟真实用户浏览过程，以保证数据采集的稳定性与连续性。-抓取”的流水线作业，提升了系统的健壮性和可维护性。
+
+\subsection{采集工具与框架}
+数据采集主要基于 Python 语言实现，使用 requests 库完成网页请求，利用 BeautifulSoup 对 HTML 页面进行解析与信息提取。
+通过维护会话状态、设置随机 User-Agent 及请求延时，有效降低高频访问带来的风险，提高采集过程的稳定性。
+
+整体爬虫程序采用模块化设计，分为笔记 ID 采集模块与笔记详情信息采集模块，便于后续维护与扩展。\begin{itemize}
+	\item 第一阶段：ID收集爬虫：该模块负责从平台信息流中持续发现新的笔记ID。它模拟访问指定的频道发现页（如美妆、家电频道），解析页面源码，提取笔记详情页链接并剥离出唯一的笔记ID。
+	\item 第二阶段：详情页采集爬虫：该模块读取第一阶段生成的ID列表，批量构建详情页URL并发起请求。通过解析详情页的<meta>标签和特定DOM元素，精确提取2.1.1节中定义的各类信息。
+\end{itemize}
+小红书笔记ID采集流程示例：
+\begin{lstlisting}[language = Python, numbers=left, 
+	numberstyle=\normalsize,keywordstyle=\color{blue!70},showstringspaces=false,
+	commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+	rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import time
+import random
+import requests
+from bs4 import BeautifulSoup
+
+def get_note_ids_from_page(url):
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    note_ids = []
+    for link in soup.find_all("a", href=True):
+        if "/explore/" in link["href"]:
+            note_id = link["href"].split("/explore/")[-1]
+            note_ids.append(note_id)
+
+    time.sleep(random.uniform(2, 5))  # 随机延时
+    return note_ids
+\end{lstlisting}
+
+在获取笔记唯一标识后，进一步访问笔记详情页面，对笔记的文本内容、互动数据及发布时间等关键信息进行解析。其基本实现流程如代码示例所示：
+\begin{lstlisting}[language = Python, numbers=left, 
+	numberstyle=\normalsize,keywordstyle=\color{blue!70},showstringspaces=false,
+	commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+	rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+import requests
+from bs4 import BeautifulSoup
+import time
+import random
+
+def get_note_detail(note_id):
+    url = f"https://www.xiaohongshu.com/explore/{note_id}"
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # 提取笔记标题
+    try:
+        title = soup.select_one('meta[name="og:title"]')['content']
+    except:
+        title = ""
+
+    # 提取正文描述
+    try:
+        description = soup.select_one('meta[name="description"]')['content']
+    except:
+        description = ""
+
+    # 提取互动数据
+    try:
+        like_count = soup.select_one('meta[name="og:xhs:note_like"]')['content']
+        comment_count = soup.select_one('meta[name="og:xhs:note_comment"]')['content']
+        collect_count = soup.select_one('meta[name="og:xhs:note_collect"]')['content']
+    except:
+        like_count, comment_count, collect_count = 0, 0, 0
+
+    # 提取发布时间
+    try:
+        publish_time = soup.select_one('span.date').text.strip()
+    except:
+        publish_time = ""
+
+    time.sleep(random.uniform(2, 4))  # 控制访问频率
+
+    return {
+        "note_id": note_id,
+        "title": title,
+        "description": description,
+        "like": like_count,
+        "comment": comment_count,
+        "collect": collect_count,
+        "publish_time": publish_time
+    }
+\end{lstlisting}
+
+\subsection{采集流程设计}
+本研究的数据采集流程主要包括以下几个步骤：
+\begin{enumerate}
+	\item \textbf{确定采集范围：} 明确研究领域为家电与美妆两个内容类别，数据采集时间范围限定为 2023 年 1 月至 2024 年 8 月。
+	\item \textbf{笔记 ID 获取：} 分别通过搜索页面与频道页面获取笔记列表，从页面中解析并提取笔记唯一标识（ID），并对已采集 ID 进行去重处理。
+	\item \textbf{笔记详情采集：} 基于已获取的笔记 ID，进一步访问笔记详情页面，采集完整的文本内容、互动数据、多媒体信息及博主相关信息。
+	\item \textbf{数据存储：} 将结构化数据统一存储为 CSV 文件，便于后续统计分析；同时将笔记正文、标签词、视频链接等文本信息以及图片资源分别保存，用于辅助特征提取和描述性分析。
+\end{enumerate}
+数据采集过程为连续多日运行完成，通过分轮采集与断点续爬机制，保证在长时间运行条件下的数据完整性与稳定性。
+
+\subsection{反爬策略与伦理考量}
+为降低对平台服务器的访问压力并遵守网络爬虫伦理，本研究在数据采集过程中采取了以下措施：
+\begin{itemize}
+	\item 设置随机请求延时，避免高频访问；
+	\item 控制单轮采集规模，防止异常请求行为；
+	\item 仅采集平台公开展示的数据内容；
+	\item 所有数据仅用于学术研究，分析结果以聚合统计形式呈现，不涉及任何个人隐私信息的公开。
+\end{itemize}本研究所采集的全部数据均为小红书平台上的公开信息。在数据使用上，我们郑重承诺：所有数据仅用于本项学术研究的统计分析，绝不会用于任何商业目的，也不会以任何形式公开披露能识别到具体用户或个人身份的原始信息。论文中的所有结论均基于聚合后的统计结果呈现。
+
+\section{数据描述与特征工程}
+
+原始采集的小红书笔记数据以文本和半结构化字段为主，包含大量非标准化表达形式，无法直接用于统计分析与建模。因此，本研究在数据清洗的基础上，围绕时间信息、互动行为、发布地点与标签等核心要素，构建了一套结构化特征体系，将原始字段转化为可量化、可编码的分析变量。
+
+\subsection{时间特征构建}
+
+小红书平台中的发布时间以多种自然语言形式呈现，如“3天前”“昨天 20:15”“06-20”“编辑于 今天”等。针对该特点，本文对发布时间字段进行统一解析与推断，主要步骤包括：
+
+\begin{itemize}
+\item 识别相对时间表达（如“x天前”“昨天”“今天”），并基于数据采集日期反推出实际发布日期；
+\item 对仅包含“月-日”或“x月x日”的时间表达，结合采集时间补全年份信息；
+\item 对已为标准日期格式（如 YYYY-MM-DD）的记录直接保留。
+\end{itemize}
+
+经过处理后，所有笔记的发布日期被统一转换为标准日期格式（YYYY-MM-DD），并在此基础上进一步派生出以下时间特征：
+
+\begin{itemize}
+\item \textbf{发布日期：} 推断后的笔记实际发布时间；
+\item \textbf{星期特征：} 根据发布日期计算星期几，并编码为数值型变量，用于刻画发布时点的周期性特征。
+\end{itemize}
+
+\subsection{互动行为特征}
+
+互动行为是衡量笔记热度的核心信息来源，包括点赞数、评论数、收藏数以及发布者粉丝数。然而，这些字段在原始数据中通常以非标准数值形式出现，如“1.2万”“3万+”“10+”等。
+
+为保证数据的可计算性，本文对上述字段进行统一数值化处理：
+
+\begin{itemize}
+\item 将带有“万”“万+”等单位的文本数值转换为对应的整数数量级；
+\item 对带“+”的数值，在保留数量级信息的基础上进行近似修正；
+\item 最终生成相对准确的点赞数、评论数、收藏数及粉丝数数值特征。
+\end{itemize}
+
+该处理过程在一定程度上缓解了平台展示规则带来的信息模糊问题，使互动数据能够直接参与后续统计分析与建模。
+
+\subsection{发布地点特征}
+
+发布地点信息来源于笔记发布时间字段中附带的文本描述。本文通过正则匹配与字符串解析方法，从相关字段中抽取用户填写的发布地点信息，并构建地点特征。
+
+在此基础上，采用字典映射方式对地点文本进行编码处理：
+
+\begin{itemize}
+\item 对已识别的发布地点建立全局唯一编号映射表；
+\item 对同时包含多个地点的情况，保留多值编码结果；
+\item 对未填写或无法识别发布地点的笔记，设置统一的缺失标记。
+\end{itemize}
+
+此外，为便于模型区分地点信息的完整性，额外构建“是否填写发布地点”的辅助二元特征。
+
+\subsection{标签特征}
+
+笔记中的话题标签反映了内容的主题属性。本文对笔记中包含的标签词进行统计与整理，并采用与发布地点相同的字典化编码策略：
+
+\begin{itemize}
+\item 统计全体数据中出现过的标签词集合；
+\item 构建标签词到数值 ID 的映射关系；
+\item 对缺失标签或无标签笔记设置统一缺失编码；
+\item 构建“是否填写标签”的辅助特征。
+\end{itemize}
+
+通过上述处理，原始文本标签被转化为可用于建模的离散类别特征。
+
+\section{数据预处理与清洗}
+
+原始采集的数据在结构和内容层面均存在噪声与不一致问题。为保证数据质量，本文在特征工程之前实施了系统的数据预处理与清洗流程。
+
+\subsection{异常与冗余数据清理}
+
+在数据整理过程中，主要执行以下清洗操作：
+
+\begin{itemize}
+\item 删除在合并或追加过程中产生的重复表头行；
+\item 剔除关键字段（如粉丝数）中包含明显异常字符串的记录；
+\item 对无法解析发布时间或缺失核心标识信息的样本予以剔除。
+\end{itemize}
+
+\subsection{缺失值处理策略}
+
+考虑到社交平台数据中缺失现象普遍存在，本文未采用简单均值或众数填补，而是通过显式标注缺失状态的方式进行处理：
+
+\begin{itemize}
+\item 对发布地点、标签等非关键特征，使用特定编码值表示缺失；
+\item 同时构建“是否填写该信息”的辅助特征，保留缺失本身所蕴含的信息；
+\item 对关键字段（如笔记 ID、互动数据）严重缺失的样本直接剔除。
+\end{itemize}
+
+\subsection{特征编码与一致性控制}
+
+为保证多文件、多批次数据处理结果的一致性，代码采用增量式字典编码策略：
+
+\begin{itemize}
+\item 地点与标签编码字典在处理过程中持续更新并全局共享；
+\item 相同文本特征在不同数据文件中始终对应相同的数值编码；
+\item 对未匹配到的异常类别设置统一的异常标识值。
+\end{itemize}
+
+该策略有效避免了因分批处理导致的特征含义不一致问题，为后续建模提供了稳定的数据基础。
+
+\begin{figure}[H]
+    \centering
+    % 左图：用\text{}包裹特殊符号，转义下划线
+    \subfigure[{%
+        \parbox{0.45\textwidth}{\centering 清洗前的原始数据\\
+        \footnotesize 同色框对应：红\text{=}标签词，蓝\text{=}粉丝量，绿\text{=}发布时间，紫\text{=}发布地点，橙\text{=}点赞数、评论数、收藏数}%
+    }]{
+        \includegraphics[width=0.45\textwidth]{before_cleaning.pdf}
+        \label{fig:before_cleaning}
+    }
+    \quad
+    % 右图：转义下划线（\_），用\text{}包裹等号
+    \subfigure[{%
+        \parbox{0.45\textwidth}{\centering 清洗后的结构化数据\\
+        \footnotesize 同色框对应：红\text{=}标签编码，蓝\text{=}相对准确粉丝数，绿\text{=}推断发布日期、推翻星期几和对应星期编码，紫\text{=}发布地点编码\text{=}相对准确点赞数、相对准确评论数、相对准确收藏数}%
+    }]{
+        \includegraphics[width=0.45\textwidth]{after_cleaning.pdf}
+        \label{fig:after_cleaning}
+    }
+    \caption{小红书笔记数据清洗前后对比}
+    \label{fig:data_cleaning_comparison}
+\end{figure}

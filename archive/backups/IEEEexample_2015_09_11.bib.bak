@@ -1,0 +1,2391 @@
+
+IEEEexample.bib 
+V1.12 (2007/01/11)
+Copyright (c) 2002-2007 by Michael Shell
+See: http://www.michaelshell.org/
+for current contact information.
+
+This is an example BibTeX database for the official IEEEtran.bst
+BibTeX style file.
+
+Some entries call strings that are defined in the IEEEabrv.bib file.
+Therefore, IEEEabrv.bib should be loaded prior to this file. 
+Usage: 
+
+\bibliographystyle{./IEEEtran}
+\bibliography{./IEEEabrv,./IEEEexample}
+
+
+Support sites:
+http://www.michaelshell.org/tex/ieeetran/
+http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+and/or
+http://www.ieee.org/
+
+*************************************************************************
+Legal Notice:
+This code is offered as-is without any warranty either expressed or
+implied; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE! 
+User assumes all risk.
+In no event shall IEEE or any contributor to this code be liable for
+any damages or losses, including, but not limited to, incidental,
+consequential, or any other damages, resulting from the use or misuse
+of any information contained here.
+
+All comments are the opinions of their respective authors and are not
+necessarily endorsed by the IEEE.
+
+This work is distributed under the LaTeX Project Public License (LPPL)
+( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+distributed and modified. A copy of the LPPL, version 1.3, is included
+in the base LaTeX documentation of all distributions of LaTeX released
+2003/12/01 or later.
+Retain all contribution notices and credits.
+** Modified files should be clearly indicated as such, including  **
+** renaming them and changing author support contact information. **
+
+File list of work: IEEEabrv.bib, IEEEfull.bib, IEEEexample.bib,
+                   IEEEtran.bst, IEEEtranS.bst, IEEEtranSA.bst,
+                   IEEEtranN.bst, IEEEtranSN.bst, IEEEtran_bst_HOWTO.pdf
+*************************************************************************
+
+
+Note that, because the example references were taken from actual IEEE
+publications, these examples do not always contain the full amount
+of information that may be desirable (for use with other BibTeX styles).
+In particular, full names (not abbreviated with initials) should be
+entered whenever possible as some (non-IEEE) bibliography styles use
+full names. IEEEtran.bst will automatically abbreviate when it encounters
+full names.
+
+
+%---------------------------------------------------------------------
+% Year 2008
+@book{lawrence2008fundamentals,
+  title={Fundamentals of speech recognition},
+  author={Lawrence, Rabiner},
+  year={2008},
+  publisher={Pearson Education India}
+}
+
+
+%---------------------------------------------------------------------
+% Year 1997
+@inproceedings{keogh1997fast,
+  title={Fast similarity search in the presence of longitudinal scaling in time series databases},
+  author={Keogh, Eamonn},
+  booktitle={Proceedings Ninth IEEE International Conference on Tools with Artificial Intelligence},
+  pages={578--584},
+  year={1997},
+  organization={IEEE}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*************************************************************************
+@article{zhou2012relative,
+  title={Relative clock verifies endogenous bursts of human dynamics},
+  author={Zhou, Tao and Zhao, Zhi-Dan and Yang, Zimo and Zhou, Changsong},
+  journal={EPL (Europhysics Letters)},
+  volume={97},
+  number={1},
+  pages={18006},
+  year={2012},
+  publisher={IOP Publishing}
+}
+
+*************************************************************************
+% Social network computer science
+@inproceedings{myers2012information,
+  title={Information diffusion and external influence in networks},
+  author={Myers, Seth A and Zhu, Chenguang and Leskovec, Jure},
+  booktitle={Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={33--41},
+  year={2012},
+  organization={ACM}
+}
+
+@article{zhan2017network,
+  title={A network model for growth of publications and citations},
+  author={Zhan, Choujun and Tse, Chi K},
+  journal={Journal of Complex Networks},
+  volume={5},
+  number={2},
+  pages={303--314},
+  year={2017},
+  publisher={Oxford University Press}
+}
+
+@article{leskovec2007dynamics,
+  title={The dynamics of viral marketing},
+  author={Leskovec, Jure and Adamic, Lada A and Huberman, Bernardo A},
+  journal={ACM Transactions on the Web (TWEB)},
+  volume={1},
+  number={1},
+  pages={5},
+  year={2007},
+  publisher={ACM}
+}
+
+
+@inproceedings{anagnostopoulos2008influence,
+  title={Influence and correlation in social networks},
+  author={Anagnostopoulos, Aris and Kumar, Ravi and Mahdian, Mohammad},
+  booktitle={Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={7--15},
+  year={2008},
+  organization={ACM}
+}
+*************************************************************************
+% Popularity
+@article{sornette2004endogenous,
+  title={Endogenous versus exogenous shocks in complex networks: An empirical test using book sale rankings},
+  author={Sornette, Didier and Desch{\^a}tres, Fabrice and Gilbert, Thomas and Ageon, Yann},
+  journal={Physical Review Letters},
+  volume={93},
+  number={22},
+  pages={228701},
+  year={2004},
+  publisher={APS}
+}
+
+@inproceedings{gruhl2004information,
+  title={Information diffusion through blogspace},
+  author={Gruhl, Daniel and Guha, Ramanathan and Liben-Nowell, David and Tomkins, Andrew},
+  booktitle={Proceedings of the 13th international conference on World Wide Web},
+  pages={491--501},
+  year={2004},
+  organization={ACM}
+}
+
+@inproceedings{adar2005tracking,
+  title={Tracking information epidemics in blogspace},
+  author={Adar, Eytan and Adamic, Lada A},
+  booktitle={Proceedings of the 2005 IEEE/WIC/ACM international conference on web intelligence},
+  pages={207--214},
+  year={2005},
+  organization={IEEE Computer Society}
+}
+
+@article{lerman2006social,
+  title={Social browsing on flickr},
+  author={Lerman, Kristina and Jones, Laurie},
+  journal={arXiv preprint cs/0612047},
+  year={2006}
+}
+
+
+@inproceedings{backstrom2006group,
+  title={Group formation in large social networks: membership, growth, and evolution},
+  author={Backstrom, Lars and Huttenlocher, Dan and Kleinberg, Jon and Lan, Xiangyang},
+  booktitle={Proceedings of the 12th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={44--54},
+  year={2006},
+  organization={ACM}
+}
+
+@inproceedings{ahn2007analysis,
+  title={Analysis of topological characteristics of huge online social networking services},
+  author={Ahn, Yong-Yeol and Han, Seungyeop and Kwak, Haewoon and Moon, Sue and Jeong, Hawoong},
+  booktitle={Proceedings of the 16th international conference on World Wide Web},
+  pages={835--844},
+  year={2007},
+  organization={ACM}
+}
+
+@article{wu2007novelty,
+  title={Novelty and collective attention},
+  author={Wu, Fang and Huberman, Bernardo A},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={104},
+  number={45},
+  pages={17599--17601},
+  year={2007},
+  publisher={National Acad Sciences}
+}
+
+
+@article{cheng2013understanding,
+  title={Understanding the characteristics of internet short video sharing: A YouTube-based measurement study},
+  author={Cheng, Xu and Liu, Jiangchuan and Dale, Cameron},
+  journal={IEEE Transactions on Multimedia},
+  volume={15},
+  number={5},
+  pages={1184--1194},
+  year={2013},
+  publisher={IEEE}
+}
+
+@inproceedings{crandall2008feedback,
+  title={Feedback effects between similarity and social influence in online communities},
+  author={Crandall, David and Cosley, Dan and Huttenlocher, Daniel and Kleinberg, Jon and Suri, Siddharth},
+  booktitle={Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={160--168},
+  year={2008},
+  organization={ACM}
+}
+
+@article{liben2008tracing,
+  title={Tracing information flow on a global scale using Internet chain-letter data},
+  author={Liben-Nowell, David and Kleinberg, Jon},
+  journal={Proceedings of the national academy of sciences},
+  volume={105},
+  number={12},
+  pages={4633--4638},
+  year={2008},
+  publisher={National Acad Sciences}
+}
+
+@inproceedings{kossinets2008structure,
+  title={The structure of information pathways in a social communication network},
+  author={Kossinets, Gueorgi and Kleinberg, Jon and Watts, Duncan},
+  booktitle={Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={435--443},
+  year={2008},
+  organization={ACM}
+}
+
+
+@article{crane2008robust,
+  title={Robust dynamic classes revealed by measuring the response function of a social system},
+  author={Crane, Riley and Sornette, Didier},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={105},
+  number={41},
+  pages={15649--15653},
+  year={2008},
+  publisher={National Acad Sciences}
+}
+
+
+@inproceedings{crane2008viral,
+  title={Viral, Quality, and Junk Videos on YouTube: Separating Content from Noise in an Information-Rich Environment.},
+  author={Crane, Riley and Sornette, Didier and others},
+  booktitle={AAAI Spring Symposium: Social Information Processing},
+  pages={18--20},
+  year={2008}
+}
+
+
+@inproceedings{cha2009measurement,
+  title={A measurement-driven analysis of information propagation in the flickr social network},
+  author={Cha, Meeyoung and Mislove, Alan and Gummadi, Krishna P},
+  booktitle={Proceedings of the 18th international conference on World wide web},
+  pages={721--730},
+  year={2009},
+  organization={ACM}
+}
+
+
+@article{cha2009analyzing,
+  title={Analyzing the video popularity characteristics of large-scale user generated content systems},
+  author={Cha, Meeyoung and Kwak, Haewoon and Rodriguez, Pablo and Ahn, Yong-Yeol and Moon, Sue},
+  journal={IEEE/ACM Transactions on Networking (TON)},
+  volume={17},
+  number={5},
+  pages={1357--1370},
+  year={2009},
+  publisher={IEEE Press}
+}
+
+
+@inproceedings{lee2010approach,
+  title={An approach to model and predict the popularity of online contents with explanatory factors},
+  author={Lee, Jong Gun and Moon, Sue and Salamatian, Kave},
+  booktitle={Web Intelligence and Intelligent Agent Technology (WI-IAT), 2010 IEEE/WIC/ACM International Conference on},
+  volume={1},
+  pages={623--630},
+  year={2010},
+  organization={IEEE}
+}
+
+
+@inproceedings{lerman2010using,
+  title={Using a model of social dynamics to predict popularity of news},
+  author={Lerman, Kristina and Hogg, Tad},
+  booktitle={Proceedings of the 19th international conference on World wide web},
+  pages={621--630},
+  year={2010},
+  organization={ACM}
+}
+
+
+@inproceedings{chatzopoulou2010first,
+  title={A first step towards understanding popularity in YouTube},
+  author={Chatzopoulou, Gloria and Sheng, Cheng and Faloutsos, Michalis},
+  booktitle={INFOCOM IEEE Conference on Computer Communications Workshops, 2010},
+  pages={1--6},
+  year={2010},
+  organization={IEEE}
+}
+
+
+@article{szabo2010predicting,
+  title={Predicting the popularity of online content},
+  author={Szabo, Gabor and Huberman, Bernardo A},
+  journal={Communications of the ACM},
+  volume={53},
+  number={8},
+  pages={80--88},
+  year={2010},
+  publisher={ACM}
+}
+
+
+@inproceedings{figueiredo2011tube,
+  title={The tube over time: characterizing popularity growth of youtube videos},
+  author={Figueiredo, Flavio and Benevenuto, Fabr{\'\i}cio and Almeida, Jussara M},
+  booktitle={Proceedings of the fourth ACM international conference on Web search and data mining},
+  pages={745--754},
+  year={2011},
+  organization={ACM}
+}
+*************************************************************************
+% Epidemic and rumor spreading on complex network by physics
+@article{pastor2001epidemicA,
+  title={Epidemic spreading in scale-free networks},
+  author={Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Physical review letters},
+  volume={86},
+  number={14},
+  pages={3200},
+  year={2001},
+  publisher={APS}
+}
+
+@article{pastor2001epidemicB,
+  title={Epidemic dynamics and endemic states in complex networks},
+  author={Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Physical Review E},
+  volume={63},
+  number={6},
+  pages={066117},
+  year={2001},
+  publisher={APS}
+}
+
+
+@article{pastor2002epidemic,
+  title={Epidemic dynamics in finite size scale-free networks},
+  author={Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Physical Review E},
+  volume={65},
+  number={3},
+  pages={035108},
+  year={2002},
+  publisher={APS}
+}
+
+@article{moreno2002epidemic,
+  title={Epidemic outbreaks in complex heterogeneous networks},
+  author={Moreno, Yamir and Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={The European Physical Journal B-Condensed Matter and Complex Systems},
+  volume={26},
+  number={4},
+  pages={521--529},
+  year={2002},
+  publisher={Springer}
+}
+
+@article{boguna2002epidemic,
+  title={Epidemic spreading in correlated complex networks},
+  author={Bogun{\'a}, Mari{\'a}n and Pastor-Satorras, Romualdo},
+  journal={Physical Review E},
+  volume={66},
+  number={4},
+  pages={047104},
+  year={2002},
+  publisher={APS}
+}
+
+@article{newman2002email,
+  title={Email networks and the spread of computer viruses},
+  author={Newman, Mark EJ and Forrest, Stephanie and Balthrop, Justin},
+  journal={Physical Review E},
+  volume={66},
+  number={3},
+  pages={035101},
+  year={2002},
+  publisher={APS}
+}
+
+
+@article{newman2002spread,
+  title={Spread of epidemic disease on networks},
+  author={Newman, Mark EJ},
+  journal={Physical review E},
+  volume={66},
+  number={1},
+  pages={016128},
+  year={2002},
+  publisher={APS}
+}
+
+@inproceedings{wang2003epidemic,
+  title={Epidemic spreading in real networks: An eigenvalue viewpoint},
+  author={Wang, Yang and Chakrabarti, Deepayan and Wang, Chenxi and Faloutsos, Christos},
+  booktitle={Reliable Distributed Systems, 2003. Proceedings. 22nd International Symposium on},
+  pages={25--34},
+  year={2003},
+  organization={IEEE}
+}
+
+
+
+@article{boguna2003absence,
+  title={Absence of epidemic threshold in scale-free networks with degree correlations},
+  author={Bogun{\'a}, Mari{\'a}n and Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Physical review letters},
+  volume={90},
+  number={2},
+  pages={028701},
+  year={2003},
+  publisher={APS}
+}
+
+
+@article{moreno2004dynamics,
+  title={Dynamics of rumor spreading in complex networks},
+  author={Moreno, Yamir and Nekovee, Maziar and Pacheco, Amalio F},
+  journal={Physical Review E},
+  volume={69},
+  number={6},
+  pages={066130},
+  year={2004},
+  publisher={APS}
+}
+
+
+@article{barthelemy2004velocity,
+  title={Velocity and hierarchical spread of epidemic outbreaks in scale-free networks},
+  author={Barth{\'e}lemy, Marc and Barrat, Alain and Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Physical Review Letters},
+  volume={92},
+  number={17},
+  pages={178701},
+  year={2004},
+  publisher={APS}
+}
+
+@article{dodds2004universal,
+  title={Universal behavior in a generalized model of contagion},
+  author={Dodds, Peter Sheridan and Watts, Duncan J},
+  journal={Physical review letters},
+  volume={92},
+  number={21},
+  pages={218701},
+  year={2004},
+  publisher={APS}
+}
+
+
+@article{barthelemy2005dynamical,
+  title={Dynamical patterns of epidemic outbreaks in complex heterogeneous networks},
+  author={Barth{\'e}lemy, Marc and Barrat, Alain and Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Journal of theoretical biology},
+  volume={235},
+  number={2},
+  pages={275--288},
+  year={2005},
+  publisher={Elsevier}
+}
+
+
+@article{meyers2005network,
+  title={Network theory and SARS: predicting outbreak diversity},
+  author={Meyers, Lauren Ancel and Pourbohloul, Babak and Newman, Mark EJ and Skowronski, Danuta M and Brunham, Robert C},
+  journal={Journal of theoretical biology},
+  volume={232},
+  number={1},
+  pages={71--81},
+  year={2005},
+  publisher={Elsevier}
+}
+
+
+@inproceedings{ganesh2005effect,
+  title={The effect of network topology on the spread of epidemics},
+  author={Ganesh, Ayalvadi and Massouli{\'e}, Laurent and Towsley, Don},
+  booktitle={INFOCOM 2005. 24th Annual Joint Conference of the IEEE Computer and Communications Societies. Proceedings IEEE},
+  volume={2},
+  pages={1455--1466},
+  year={2005},
+  organization={IEEE}
+}
+
+
+@inproceedings{ganesh2005effect,
+  title={The effect of network topology on the spread of epidemics},
+  author={Ganesh, Ayalvadi and Massouli{\'e}, Laurent and Towsley, Don},
+  booktitle={INFOCOM 2005. 24th Annual Joint Conference of the IEEE Computer and Communications Societies. Proceedings IEEE},
+  volume={2},
+  pages={1455--1466},
+  year={2005},
+  organization={IEEE}
+}
+
+
+@article{gross2006epidemic,
+  title={Epidemic dynamics on an adaptive network},
+  author={Gross, Thilo and D’Lima, Carlos J Dommar and Blasius, Bernd},
+  journal={Physical review letters},
+  volume={96},
+  number={20},
+  pages={208701},
+  year={2006},
+  publisher={APS}
+}
+
+@article{colizza2006role,
+  title={The role of the airline transportation network in the prediction and predictability of global epidemics},
+  author={Colizza, Vittoria and Barrat, Alain and Barth{\'e}lemy, Marc and Vespignani, Alessandro},
+  journal={Proceedings of the National Academy of Sciences of the United States of America},
+  volume={103},
+  number={7},
+  pages={2015--2020},
+  year={2006},
+  publisher={National Acad Sciences}
+}
+
+
+@article{nekovee2007theory,
+  title={Theory of rumour spreading in complex social networks},
+  author={Nekovee, Maziar and Moreno, Yamir and Bianconi, Ginestra and Marsili, Matteo},
+  journal={Physica A: Statistical Mechanics and its Applications},
+  volume={374},
+  number={1},
+  pages={457--470},
+  year={2007},
+  publisher={Elsevier}
+}
+
+
+@article{colizza2007reaction,
+  title={Reaction--diffusion processes and metapopulation models in heterogeneous networks},
+  author={Colizza, Vittoria and Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Nature Physics},
+  volume={3},
+  number={4},
+  pages={276--282},
+  year={2007},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{chakrabarti2008epidemic,
+  title={Epidemic thresholds in real networks},
+  author={Chakrabarti, Deepayan and Wang, Yang and Wang, Chenxi and Leskovec, Jurij and Faloutsos, Christos},
+  journal={ACM Transactions on Information and System Security (TISSEC)},
+  volume={10},
+  number={4},
+  pages={1},
+  year={2008},
+  publisher={ACM}
+}
+
+
+@article{gomez2010discrete,
+  title={Discrete-time Markov chain approach to contact-based disease spreading in complex networks},
+  author={G{\'o}mez, Sergio and Arenas, Alexandre and Borge-Holthoefer, J and Meloni, Sandro and Moreno, Yamir},
+  journal={EPL (Europhysics Letters)},
+  volume={89},
+  number={3},
+  pages={38009},
+  year={2010},
+  publisher={IOP Publishing}
+}
+
+
+@article{pastor2015epidemic,
+  title={Epidemic processes in complex networks},
+  author={Pastor-Satorras, Romualdo and Castellano, Claudio and Van Mieghem, Piet and Vespignani, Alessandro},
+  journal={Reviews of modern physics},
+  volume={87},
+  number={3},
+  pages={925},
+  year={2015},
+  publisher={APS}
+}
+
+@article{prakash2012threshold,
+  title={Threshold conditions for arbitrary cascade models on arbitrary networks},
+  author={Prakash, B Aditya and Chakrabarti, Deepayan and Valler, Nicholas C and Faloutsos, Michalis and Faloutsos, Christos},
+  journal={Knowledge and information systems},
+  volume={33},
+  number={3},
+  pages={549--575},
+  year={2012},
+  publisher={Springer}
+}
+
+@article{banerjee2013diffusion,
+  title={The diffusion of microfinance},
+  author={Banerjee, Abhijit and Chandrasekhar, Arun G and Duflo, Esther and Jackson, Matthew O},
+  journal={Science},
+  volume={341},
+  number={6144},
+  pages={1236498},
+  year={2013},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{boguna2013nature,
+  title={Nature of the epidemic threshold for the susceptible-infected-susceptible dynamics in networks},
+  author={Bogu{\~n}{\'a}, Marian and Castellano, Claudio and Pastor-Satorras, Romualdo},
+  journal={Physical review letters},
+  volume={111},
+  number={6},
+  pages={068701},
+  year={2013},
+  publisher={APS}
+}
+
+@article{van2009virus,
+  title={Virus spread in networks},
+  author={Van Mieghem, Piet and Omic, Jasmina and Kooij, Robert},
+  journal={IEEE/ACM Transactions on Networking (TON)},
+  volume={17},
+  number={1},
+  pages={1--14},
+  year={2009},
+  publisher={IEEE Press}
+}
+
+
+@article{granell2013dynamical,
+  title={Dynamical interplay between awareness and epidemic spreading in multiplex networks},
+  author={Granell, Clara and G{\'o}mez, Sergio and Arenas, Alex},
+  journal={Physical review letters},
+  volume={111},
+  number={12},
+  pages={128701},
+  year={2013},
+  publisher={APS}
+}
+
+@article{weng2013virality,
+  title={Virality prediction and community structure in social networks},
+  author={Weng, Lilian and Menczer, Filippo and Ahn, Yong-Yeol},
+  journal={Scientific reports},
+  volume={3},
+  pages={2522},
+  year={2013},
+  publisher={Nature Publishing Group}
+}
+
+@article{sanz2014dynamics,
+  title={Dynamics of interacting diseases},
+  author={Sanz, Joaqu{\'\i}n and Xia, Cheng-Yi and Meloni, Sandro and Moreno, Yamir},
+  journal={Physical Review X},
+  volume={4},
+  number={4},
+  pages={041005},
+  year={2014},
+  publisher={APS}
+}
+
+
+@article{valdano2015analytical,
+  title={Analytical computation of the epidemic threshold on temporal networks},
+  author={Valdano, Eugenio and Ferreri, Luca and Poletto, Chiara and Colizza, Vittoria},
+  journal={Physical Review X},
+  volume={5},
+  number={2},
+  pages={021005},
+  year={2015},
+  publisher={APS}
+}
+
+
+@article{leventhal2015evolution,
+  title={Evolution and emergence of infectious diseases in theoretical and real-world networks},
+  author={Leventhal, Gabriel E and Hill, Alison L and Nowak, Martin A and Bonhoeffer, Sebastian},
+  journal={Nature communications},
+  volume={6},
+  pages={6101},
+  year={2015},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{goel2015structural,
+  title={The structural virality of online diffusion},
+  author={Goel, Sharad and Anderson, Ashton and Hofman, Jake and Watts, Duncan J},
+  journal={Management Science},
+  volume={62},
+  number={1},
+  pages={180--196},
+  year={2015},
+  publisher={INFORMS}
+}
+
+
+@inproceedings{rodrigues2011word,
+  title={On word-of-mouth based discovery of the web},
+  author={Rodrigues, Tiago and Benevenuto, Fabr{\'\i}cio and Cha, Meeyoung and Gummadi, Krishna and Almeida, Virg{\'\i}lio},
+  booktitle={Proceedings of the 2011 ACM SIGCOMM conference on Internet measurement conference},
+  pages={381--396},
+  year={2011},
+  organization={ACM}
+}
+
+
+@inproceedings{romero2011differences,
+  title={Differences in the mechanics of information diffusion across topics: idioms, political hashtags, and complex contagion on twitter},
+  author={Romero, Daniel M and Meeder, Brendan and Kleinberg, Jon},
+  booktitle={Proceedings of the 20th international conference on World wide web},
+  pages={695--704},
+  year={2011},
+  organization={ACM}
+}
+
+@inproceedings{borghol2012untold,
+  title={The untold story of the clones: content-agnostic factors that impact YouTube video popularity},
+  author={Borghol, Youmna and Ardon, Sebastien and Carlsson, Niklas and Eager, Derek and Mahanti, Anirban},
+  booktitle={Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  pages={1186--1194},
+  year={2012},
+  organization={ACM}
+}
+
+
+@article{yoganarasimhan2012impact,
+  title={Impact of social network structure on content propagation: A study using YouTube data},
+  author={Yoganarasimhan, Hema},
+  journal={Quantitative Marketing and Economics},
+  volume={10},
+  number={1},
+  pages={111--150},
+  year={2012},
+  publisher={Springer}
+}
+
+
+@inproceedings{brodersen2012youtube,
+  title={Youtube around the world: geographic popularity of videos},
+  author={Brodersen, Anders and Scellato, Salvatore and Wattenhofer, Mirjam},
+  booktitle={Proceedings of the 21st international conference on World Wide Web},
+  pages={241--250},
+  year={2012},
+  organization={ACM}
+}
+
+
+@inproceedings{ahmed2013peek,
+  title={A peek into the future: Predicting the evolution of popularity in user generated content},
+  author={Ahmed, Mohamed and Spagna, Stella and Huici, Felipe and Niccolini, Saverio},
+  booktitle={Proceedings of the sixth ACM international conference on Web search and data mining},
+  pages={607--616},
+  year={2013},
+  organization={ACM}
+}
+
+
+@inproceedings{shen2014modeling,
+  title={Modeling and Predicting Popularity Dynamics via Reinforced Poisson Processes.},
+  author={Shen, Hua-Wei and Wang, Dashun and Song, Chaoming and Barab{\'a}si, Albert-L{\'a}szl{\'o}},
+  booktitle={AAAI},
+  volume={14},
+  pages={291--297},
+  year={2014}
+}
+
+@inproceedings{weng2014predicting,
+  title={Predicting Successful Memes Using Network and Community Structure.},
+  author={Weng, Lilian and Menczer, Filippo and Ahn, Yong-Yeol},
+  booktitle={ICWSM},
+  year={2014}
+}
+
+
+@inproceedings{cheng2014can,
+  title={Can cascades be predicted?},
+  author={Cheng, Justin and Adamic, Lada and Dow, P Alex and Kleinberg, Jon Michael and Leskovec, Jure},
+  booktitle={Proceedings of the 23rd international conference on World wide web},
+  pages={925--936},
+  year={2014},
+  organization={ACM}
+}
+
+
+@article{goel2015structural,
+  title={The structural virality of online diffusion},
+  author={Goel, Sharad and Anderson, Ashton and Hofman, Jake and Watts, Duncan J},
+  journal={Management Science},
+  volume={62},
+  number={1},
+  pages={180--196},
+  year={2015},
+  publisher={INFORMS}
+}
+ ************************************************************************
+ % Power law distributution
+ @inproceedings{zhao2015seismic,
+  title={Seismic: A self-exciting point process model for predicting tweet popularity},
+  author={Zhao, Qingyuan and Erdogdu, Murat A and He, Hera Y and Rajaraman, Anand and Leskovec, Jure},
+  booktitle={Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  pages={1513--1522},
+  year={2015},
+  organization={ACM}
+}
+ 
+@article{eckmann2004entropy,
+  title={Entropy of dialogues creates coherent structures in e-mail traffic},
+  author={Eckmann, Jean-Pierre and Moses, Elisha and Sergi, Danilo},
+  journal={Proceedings of the National Academy of Sciences of the United States of America},
+  volume={101},
+  number={40},
+  pages={14333--14337},
+  year={2004},
+  publisher={National Acad Sciences}
+}
+
+
+@article{oliveira2005human,
+  title={Human dynamics: Darwin and Einstein correspondence patterns},
+  author={Oliveira, Joao Gama and Barab{\'a}si, Albert-L{\'a}szl{\'o}},
+  journal={Nature},
+  volume={437},
+  number={7063},
+  pages={1251--1251},
+  year={2005},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{vazquez2006modeling,
+  title={Modeling bursts and heavy tails in human dynamics},
+  author={V{\'a}zquez, Alexei and Oliveira, Joao Gama and Dezs{\"o}, Zolt{\'a}n and Goh, Kwang-Il and Kondor, Imre and Barab{\'a}si, Albert-L{\'a}szl{\'o}},
+  journal={Physical Review E},
+  volume={73},
+  number={3},
+  pages={036127},
+  year={2006},
+  publisher={APS}
+}
+
+
+@article{wei2009heavy,
+  title={Heavy-tailed statistics in short-message communication},
+  author={Wei, Hong and Xiao-Pu, Han and Tao, Zhou and Bing-Hong, Wang},
+  journal={Chinese Physics Letters},
+  volume={26},
+  number={2},
+  pages={028902},
+  year={2009},
+  publisher={IOP Publishing}
+}
+
+
+@article{candia2008uncovering,
+  title={Uncovering individual and collective human dynamics from mobile phone records},
+  author={Candia, Juli{\'a}n and Gonz{\'a}lez, Marta C and Wang, Pu and Schoenharl, Timothy and Madey, Greg and Barab{\'a}si, Albert-L{\'a}szl{\'o}},
+  journal={Journal of physics A: mathematical and theoretical},
+  volume={41},
+  number={22},
+  pages={224015},
+  year={2008},
+  publisher={IOP Publishing}
+}
+
+
+
+
+@article{dezso2006dynamics,
+  title={Dynamics of information access on the web},
+  author={Dezs{\"o}, Zoltan and Almaas, Eivind and Luk{\'a}cs, Andr{\'a}s and R{\'a}cz, Bal{\'a}zs and Szakad{\'a}t, Istv{\'a}n and Barab{\'a}si, A-L},
+  journal={Physical Review E},
+  volume={73},
+  number={6},
+  pages={066132},
+  year={2006},
+  publisher={APS}
+}
+
+@article{gonccalves2008human,
+  title={Human dynamics revealed through Web analytics},
+  author={Gon{\c{c}}alves, Bruno and Ramasco, Jos{\'e} J},
+  journal={Physical Review E},
+  volume={78},
+  number={2},
+  pages={026123},
+  year={2008},
+  publisher={APS}
+}
+
+
+@inproceedings{leskovec2008planetary,
+  title={Planetary-scale views on a large instant-messaging network},
+  author={Leskovec, Jure and Horvitz, Eric},
+  booktitle={Proceedings of the 17th international conference on World Wide Web},
+  pages={915--924},
+  year={2008},
+  organization={ACM}
+}
+
+
+@inproceedings{goetz2009modeling,
+  title={Modeling Blog Dynamics.},
+  author={Goetz, Michaela and Leskovec, Jure and McGlohon, Mary and Faloutsos, Christos},
+  booktitle={ICWSM},
+  year={2009}
+}
+
+
+@inproceedings{chun2008comparison,
+  title={Comparison of online social relations in volume vs interaction: a case study of cyworld},
+  author={Chun, Hyunwoo and Kwak, Haewoon and Eom, Young-Ho and Ahn, Yong-Yeol and Moon, Sue and Jeong, Hawoong},
+  booktitle={Proceedings of the 8th ACM SIGCOMM conference on Internet measurement},
+  pages={57--70},
+  year={2008},
+  organization={ACM}
+}
+
+
+@article{ipeirotis2010analyzing,
+  title={Analyzing the amazon mechanical turk marketplace},
+  author={Ipeirotis, Panagiotis G},
+  journal={XRDS: Crossroads, The ACM Magazine for Students},
+  volume={17},
+  number={2},
+  pages={16--21},
+  year={2010},
+  publisher={ACM}
+}
+
+
+@article{karrer2010message,
+  title={Message passing approach for general epidemic models},
+  author={Karrer, Brian and Newman, Mark EJ},
+  journal={Physical Review E},
+  volume={82},
+  number={1},
+  pages={016101},
+  year={2010},
+  publisher={APS}
+}
+
+
+@article{hill2010emotions,
+  title={Emotions as infectious diseases in a large social network: the SISa model},
+  author={Hill, Alison L and Rand, David G and Nowak, Martin A and Christakis, Nicholas A},
+  journal={Proceedings of the Royal Society of London B: Biological Sciences},
+  volume={277},
+  number={1701},
+  pages={3827--3835},
+  year={2010},
+  publisher={The Royal Society}
+}
+
+
+@article{castellano2010thresholds,
+  title={Thresholds for epidemic spreading in networks},
+  author={Castellano, Claudio and Pastor-Satorras, Romualdo},
+  journal={Physical review letters},
+  volume={105},
+  number={21},
+  pages={218701},
+  year={2010},
+  publisher={APS}
+}
+ 
+ 
+ 
+ @article{danon2011networks,
+  title={Networks and the epidemiology of infectious disease},
+  author={Danon, Leon and Ford, Ashley P and House, Thomas and Jewell, Chris P and Keeling, Matt J and Roberts, Gareth O and Ross, Joshua V and Vernon, Matthew C},
+  journal={Interdisciplinary perspectives on infectious diseases},
+  volume={2011},
+  year={2011},
+  publisher={Hindawi Publishing Corporation}
+}
+
+@article{meloni2011modeling,
+  title={Modeling human mobility responses to the large-scale spreading of infectious diseases},
+  author={Meloni, Sandro and Perra, Nicola and Arenas, Alex and G{\'o}mez, Sergio and Moreno, Yamir and Vespignani, Alessandro},
+  journal={Scientific reports},
+  volume={1},
+  year={2011},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{borge2011structural,
+  title={Structural and dynamical patterns on online social networks: the spanish may 15th movement as a case study},
+  author={Borge-Holthoefer, Javier and Rivero, Alejandro and Garc{\'\i}a, I{\~n}igo and Cauh{\'e}, Elisa and Ferrer, Alfredo and Ferrer, Dar{\'\i}o and Francos, David and Iniguez, David and P{\'e}rez, Mar{\'\i}a Pilar and Ruiz, Gonzalo and others},
+  journal={PloS one},
+  volume={6},
+  number={8},
+  pages={e23883},
+  year={2011},
+  publisher={Public Library of Science}
+}
+
+@article{wang2015coupled,
+  title={Coupled disease--behavior dynamics on complex networks: A review},
+  author={Wang, Zhen and Andrews, Michael A and Wu, Zhi-Xi and Wang, Lin and Bauch, Chris T},
+  journal={Physics of life reviews},
+  volume={15},
+  pages={1--29},
+  year={2015},
+  publisher={Elsevier}
+}
+
+
+
+@article{karrer2011competing,
+  title={Competing epidemics on complex networks},
+  author={Karrer, Brian and Newman, Mark EJ},
+  journal={Physical Review E},
+  volume={84},
+  number={3},
+  pages={036106},
+  year={2011},
+  publisher={APS}
+}
+
+
+@article{ugander2012structural,
+  title={Structural diversity in social contagion},
+  author={Ugander, Johan and Backstrom, Lars and Marlow, Cameron and Kleinberg, Jon},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={109},
+  number={16},
+  pages={5962--5966},
+  year={2012},
+  publisher={National Acad Sciences}
+}
+
+
+@article{saumell2012epidemic,
+  title={Epidemic spreading on interconnected networks},
+  author={Saumell-Mendiola, Anna and Serrano, M {\'A}ngeles and Bogun{\'a}, Mari{\'a}n},
+  journal={Physical Review E},
+  volume={86},
+  number={2},
+  pages={026106},
+  year={2012},
+  publisher={APS}
+}
+*************************************************************************
+
+references for the IEEEtran.bst documentation
+IEEEtran homepage
+@electronic{IEEEhowto:IEEEtranpage,
+  author        = "Michael Shell",
+  title         = "{IEEE}tran Homepage",
+  url           = "http://www.michaelshell.org/tex/ieeetran/",
+  year          = "2007"
+}
+
+
+
+
+The three most common and typical types of references used in
+IEEE publications:
+
+an article in a journal
+Note the use of the IEEE_J_EDL string, defined in the IEEEabrv.bib file,
+for the journal name. IEEEtran.bst defines the BibTeX standard three
+letter month codes per IEEE style.
+From the June 2002 issue of "IEEE Transactions on Electron Devices",
+page 996, reference #16.
+@article{IEEEexample:article_typical,
+  author        = "S. Zhang and C. Zhu and J. K. O. Sin and P. K. T. Mok",
+  title         = "A Novel Ultrathin Elevated Channel Low-temperature 
+                   Poly-{Si} {TFT}",
+  journal       = IEEE_J_EDL,
+  volume        = "20",
+  month         = nov,
+  year          = "1999",
+  pages         = "569-571"
+}
+
+
+journal article using et al.
+The (five) authors are actually: F. Delorme, S. Slempkes, G. Alibert, 
+B. Rose, J. Brandon
+The month (July) was not given here.
+From the September 1998 issue of "IEEE Journal on Selected Areas in
+Communications", page 1257, reference #28.
+@article{IEEEexample:articleetal,
+  author        = "F. Delorme and others",
+  title         = "Butt-jointed {DBR} Laser With 15 {nm} Tunability Grown
+                   in Three {MOVPE} Steps",
+  journal       = "Electron. Lett.",
+  volume        = "31",
+  number        = "15",
+  year          = "1995",
+  pages         = "1244-1245"
+}
+
+
+a paper in a conference proceedings
+"conference" can be used as an alias for "inproceedings"
+From the June 2002 issue of "Journal of Microelectromechanical Systems",
+page 205, reference #16.
+@inproceedings{IEEEexample:conf_typical,
+  author        = "R. K. Gupta and S. D. Senturia",
+  title         = "Pull-in Time Dynamics as a Measure of Absolute Pressure",
+  booktitle     = "Proc. {IEEE} International Workshop on
+                   Microelectromechanical Systems ({MEMS}'97)",
+  address       = "Nagoya, Japan",
+  month         = jan,
+  year          = "1997",
+  pages         = "290-294"
+}
+
+
+a book
+From the May 2002 issue of "IEEE Transactions on Magnetics",
+page 1466, reference #4.
+@book{IEEEexample:book_typical,
+  author        = "B. D. Cullity",
+  title         = "Introduction to Magnetic Materials",
+  publisher     = "Addison-Wesley",
+  address       = "Reading, MA",
+  year          = "1972"
+}
+
+
+
+
+Other examples
+
+journal article with large page numbers, IEEE will divide numbers 5 digits
+or longer into groups of three with small spaces between them. Page ranges
+can be separated via either "-" or "--", IEEEtran.bst will automatically
+convert the separator dash(es) to "--".
+Authors and/or IEEE do not always provide/use the journal number, but it
+was used in this case. IEEEtran.bst can be configured to ignore journal
+numbers if desired.
+From the August 2000 issue of "IEEE Photonics Technology Letters",
+page 1039, reference #11.
+
+
+
+journal article to be published as a misc entry type
+date information like month and year is optional 
+However, the article form like that below may be a better approach.
+From the May 2002 issue of "IEEE Journal of Selected Areas in 
+Communication", page 725, reference #3.
+@misc{IEEEexample:TBPmisc,
+  author        = "M. Coates and A. Hero and R. Nowak and B. Yu",
+  title         = "Internet Tomography",
+  howpublished  = IEEE_M_SP,
+  month         = may,
+  year          = "2002",
+  note          = "to be published"
+}
+
+
+journal article to be published as an article entry type
+year is required, so if absent, use the year field to hold
+the "submitted for publication" in order to avoid a warning for
+the missing year field.
+From the June 2002 issue of "IEEE Transactions on Information Theory",
+page 1461, reference #21.
+@article{IEEEexample:TBParticle,
+  author        = "N. Kahale and R. Urbanke",
+  title         = "On the Minimum Distance of Parallel and Serially
+                   Concatenated Codes",
+  journal       = IEEE_J_IT,
+  year          = "submitted for publication"
+}
+
+
+
+
+
+book with editor and no author
+From the June 2002 issue of "IEEE Transactions on Information Theory",
+page 1725, reference #1.
+@book{IEEEexample:bookwitheditor,
+  editor        = "J. C. Candy and G. C. Temes",
+  title         = "Oversampling Delta-Sigma Data Converters Theory,
+                   Design and Simulation",
+  publisher     = "{IEEE} Press.",
+  address       = "New York",
+  year          = "1992"
+}
+
+
+
+inbook with chapter number. The pages field could also have been given.
+The chapter number could be changed to something else such as a section
+number via the type field: type = "sec.".
+From the May 2002 issue of "IEEE Transactions on Circuits and Systems---I: 
+Fundamental Applications and Theory", page 638, reference #22.
+@inbook{IEEEexample:inbook,
+  author        = "H. E. Rose",
+  title         = "A Course in Number Theory",
+  publisher     = "Oxford Univ. Press",
+  address       = "New York, NY",
+  year          = "1988",
+  chapter       = "3"
+}
+
+
+inbook with pages and note. The language field is not set to Russian
+because the title is presented here in its translated, English, form.
+From the May 2002 issue of "IEEE Transactions on Magnetics", page 1533,
+reference #5.
+@inbook{IEEEexample:inbookpagesnote,
+  author        = "B. K. Bul",
+  title         = "Theory Principles and Design of Magnetic Circuits",
+  publisher     = "Energia Press",
+  address       = "Moscow",
+  year          = "1964",
+  pages         = "464",
+  note          = "(in Russian)"
+}
+
+
+
+
+
+incollection with author and editor
+From the May 2002 issue of "Journal of Lightwave Technology",
+page 807, reference #7.
+@incollection{IEEEexample:incollection,
+  author        = "W. V. Sorin",
+  editor        = "D. Derickson",
+  title         = "Optical Reflectometry for Component Characterization",
+  booktitle     = "Fiber Optic Test and Measurement",
+  publisher     = "Prentice-Hall",
+  address       = "Englewood Cliffs, NJ",
+  year          = "1998"
+}
+
+
+incollection with series
+From the April 2000 issue of "IEEE Transactions on Communication",
+page 609, reference #3.
+@incollection{IEEEexample:incollectionwithseries,
+  author        = "J. B. Anderson and K. Tepe",
+  title         = "Properties of the Tailbiting {BCJR} Decoder",
+  booktitle     = "Codes, Systems and Graphical Models",
+  series        = "{IMA} Volumes in Mathematics and Its Applications",
+  publisher     = "Springer-Verlag",
+  address       = "New York",
+  year          = "2000"
+  
+}
+
+
+incollection with author, editor, chapter and pages
+From the January 2000 issue of "IEEE Transactions on Communications",
+page 16, reference #9.
+@incollection{IEEEexample:incollection_chpp,
+  author        = "P. Hedelin and P. Knagenhjelm and M. Skoglund",
+  editor        = "W. B. Kleijn and K. K. Paliwal",
+  title         = "Theory for Transmission of Vector Quantization Data",
+  booktitle     = "Speech Coding and Synthesis",
+  publisher     = "Elsevier Science",
+  address       = "Amsterdam, The Netherlands",
+  year          = "1995",
+  chapter       = "10",
+  pages         = "347-396"
+}
+
+
+incollection with a large number of authors, some authors/journals will
+use et al. for so many names. IEEEtran.bst can be configured to do this
+if desired, or "R. M. A. Dawson and others" can be used instead.
+Note that IEEE may not include the publisher for incollection entries -
+IEEEtran.bst will not issue a warning if the publisher is missing for
+incollections - but other .bst files often will.
+From the June 2002 issue of "IEEE Transactions on Electron Devices",
+page 996, reference #12.
+@incollection{IEEEexample:incollectionmanyauthors,
+  author        = "R. M. A. Dawson and Z. Shen and D. A. Furst and
+                   S. Connor and J. Hsu and M. G. Kane and R. G. Stewart and
+                   A. Ipri and C. N. King and P. J. Green and R. T. Flegal
+                   and S. Pearson and W. A. Barrow and E. Dickey and K. Ping
+                   and C. W. Tang and S. Van. Slyke and
+                   F. Chen and J. Shi and J. C. Sturm and M. H. Lu",
+  title         = "Design of an Improved Pixel for a Polysilicon 
+                   Active-Matrix Organic {LED} Display",
+  booktitle     = "{SID} Tech. Dig.",
+  volume        = "29",
+  year          = "1998",
+  pages         = "11-14"
+}
+
+
+
+
+
+A Motorola data book as a manual
+It is somewhat unusual to include the data book part number.
+in the title. It might be more correct to put this information
+in the howpublished field instead.
+From the December 2000 issue of "IEEE Transactions on Communications",
+page 1986, reference #10.
+@manual{IEEEexample:motmanual,
+  title         = "{FLEXChip} Signal Processor ({MC68175/D})",
+  organization  = "Motorola",
+  year          = "1996"
+}
+
+
+same reference, but using IEEEtran's howpublished extension
+@manual{IEEEexample:motmanualhowpub,
+  title         = "{FLEXChip} Signal Processor",
+  howpublished  = "{MC68175/D}",
+  organization  = "Motorola",
+  year          = "1996"
+}
+
+
+
+
+conference paper with an address and days. Some journals capitalize the
+letters in "Globecom", this one did not.
+From the May 2002 issue of "IEEE Transactions on Communications",
+page 697, reference #12.
+@inproceedings{IEEEexample:confwithadddays,
+  author        = "M. S. Yee and L. Hanzo",
+  title         = "Radial Basis Function Decision Feedback Equaliser
+                   Assisted Burst-by-burst Adaptive Modulation",
+  booktitle     = "Proc. {IEEE} Globecom '99",
+  address       = "Rio de Janeiro, Brazil",
+  month         = dec # " 5--9,",
+  year          = "1999",
+  pages         = "2183-2187"
+}
+
+
+
+
+
+
+
+
+master's thesis, often the University name will be abbreviated and the
+state or country will be included in the address. The type field can
+used to override the default type "Master's thesis"
+From the June 2002 issue of "IEEE Transactions on Microelectromechanical
+Systems", page 186, reference #11.
+@mastersthesis{IEEEexample:masters,
+  author        = "Nin C. Loh",
+  title         = "High-Resolution Micromachined Interferometric
+                   Accelerometer",
+  school        = "Massachusetts Institute of Technology",
+  address       = "Cambridge",
+  year          = "1992"
+}
+
+
+master's thesis with a type field
+From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+page 391, reference #12.
+@mastersthesis{IEEEexample:masterstype,
+  author        = "A. Karnik",
+  title         = "Performance of {TCP} Congestion Control with Rate
+                   Feedback: {TCP/ABR} and Rate Adaptive {TCP/IP}",
+  school        = "Indian Institute of Science",
+  type          = "M. Eng. thesis",
+  address       = "Bangalore, India",
+  month         = jan,
+  year          = "1999"
+}
+
+
+
+
+
+Ph.D. dissertation with a URL field, the university is abbreviated
+From the October 2001 issue of "IEEE/ACM Transactions on Networking",
+page 590, reference #11.
+@phdthesis{IEEEexample:phdurl,
+  author        = "Q. Li",
+  title         = "Delay Characterization and Performance Control of
+                   Wide-area Networks",
+  school        = "Univ. of Delaware",
+  address       = "Newark",
+  month         = may,
+  year          = "2000",
+  url           = "http://www.ece.udel.edu/~qli"
+}
+
+
+
+
+
+technical report
+From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+page 490, reference #15.
+@techreport{IEEEexample:techrep,
+  author        = "R. Jain and K. K. Ramakrishnan and D. M. Chiu",
+  title         = "Congestion Avoidance in Computer Networks with a 
+                   Connectionless Network Layer",
+  institution   = "Digital Equipment Corporation",
+  address       = "MA",
+  number        = "DEC-TR-506",
+  month         = aug,
+  year          = "1987"
+}
+
+
+technical report with type
+for those times when "Tech. Rep." needs to be modified
+From the February 2001 issue of "IEEE/ACM Transactions on Networking",
+page 46, reference #8.
+@techreport{IEEEexample:techreptype,
+  author        = "J. Padhye and V. Firoiu and D. Towsley",
+  title         = "A Stochastic Model of {TCP} {R}eno Congestion Avoidance
+                   and Control",
+  institution   = "Univ. of Massachusetts",
+  address       = "Amherst, MA",
+  type          = "CMPSCI Tech. Rep.",
+  number        = "99-02",
+  year          = "1999"
+}
+
+
+
+
+
+
+an unpublished work
+for unpublished types, the note field is required. IEEE usually
+just uses the word "unpublished" for the note.
+From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+page 391, reference #16.
+@unpublished{IEEEexample:unpublished,
+  author        = "T. J. Ott and N. Aggarwal",
+  title         = "{TCP} over {ATM}: {ABR} or {UBR}",
+  note          = "Unpublished"
+}
+
+
+
+
+
+electronic with a howpublished information field 
+From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+page 391, reference #7.
+@electronic{IEEEexample:electronhowinfo,
+  author        = "V. Jacobson",
+  title         = "Modified {TCP} Congestion Avoidance Algorithm",
+  howpublished  = "end2end-interest mailing list",
+  url           = "ftp://ftp.isi.edu/end2end/end2end-interest-1990.mail",
+  month         = apr,
+  year          = "1990"
+}
+
+
+
+
+
+
+
+
+U.S. patent
+Use the type field to override the patent type. e.g.,
+type = "Patent Application"
+The address is that of the assignee. Note that IEEE does not
+display the assignee, the address, and only displays one date.
+(if year is not present, the filed dates are used.) However, this
+information should be entered as other BibTeX styles may use it.
+alternatively, nationality could be entered as "U.S." 
+From the April 2000 issue of "IEEE Transactions on Communications",
+page 542, reference #6.
+@patent{IEEEexample:uspat,
+  author        = "Ronald E. Sorace and Victor S. Reinhardt and
+                   Steven A. Vaughn",
+  assignee      = "Hughes Aircraft Company",
+  address       = "Los Angeles, CA",
+  title         = "High-Speed Digital-to-{RF} Converter",
+  nationality   = "United States",
+  number        = "5668842",
+  dayfiled      = "28",
+  monthfiled    = feb,
+  yearfiled     = "1995",
+  day           = "16",
+  month         = sep,
+  year          = "1997"
+}
+
+
+
+
+
+
+
+
+a periodical
+From the April 2001 issue of "IEEE/ACM Transactions on Networking",
+page 160, reference #1.
+sort key is needed for sorting styles
+@periodical{IEEEexample:periodical,
+  title         = IEEE_M_PCOM # ", Special Issue on Wireless {ATM}",
+  volume        = "3",
+  month         = aug,
+  year          = "1996",
+  key           = "IEEE"
+}
+
+
+
+
+
+standard, IEEE does not use the address for standards, but it is good
+to provide one for BibTeX styles that use it.
+From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+page 451, reference #2.
+@standard{IEEEexample:standard,
+  title         = "Wireless {LAN} Medium Access Control {(MAC)} and 
+                   Physical Layer {(PHY)} Specification",
+  organization  = "IEEE",
+  address       = "Piscataway, NJ",
+  number        = "802.11",
+  year          = "1997"
+}
+
+
+standard with type and revision, the type overrides the word standard
+(or std.). Here a standard number is not available and a revision number
+is used.
+From the August 2000 issue of "IEEE Photonics Technology Letters",
+page 1048, reference #13.
+@standard{IEEEexample:standardproposed,
+  title         = "Fiber Channel Physical Interface ({FC-PI})",
+  institution   = "NCITS",
+  address       = "Washington, DC",
+  type          = "Working Draft Proposed Standard",
+  revision      = "5.2",
+  year          = "1999"
+}
+
+
+standard draft as a misc with author
+From the May 2002 issue of "IEEE Journal of Selected Areas in
+Communication", page 725, reference #16.
+@misc{IEEEexample:draftasmisc,
+  author        = "I. Widjaja and A. Elwalid",
+  title         = "{MATE}: {MPLS} Adaptive Traffic Engineering",
+  howpublished  = "IETF Draft",
+  year          = "1999"
+}
+
+
+
+
+
+
+
+
+CCSDS's Blue Book handled as a standard
+Probably the best approach for this particular case because the work
+is standard related. Note that IEEE does not display the address for
+standards.
+@standard{IEEEexample:bluebookstandard,
+  title         = "Telemetry Channel Coding",
+  howpublished  = "ser. Blue Book, No. 4",
+  organization  = "Consulative Committee for Space Data Systems (CCSDS)",
+  address       = "Newport Beach, CA",
+  type          = "Recommendation for Space Data System Standard",
+  number        = "101.0-B-4",
+  month         = May,
+  year          = "1999",
+  url           = "http://www.ccsds.org/documents/pdf/CCSDS-101.0-B-4.pdf"
+}
+
+
+
+
+%---------------------------------------------------------------------------
+@article{albert2002statistical,
+  title={Statistical mechanics of complex networks},
+  author={Albert, R{\'e}ka and Barab{\'a}si, Albert-L{\'a}szl{\'o}},
+  journal={Reviews of modern physics},
+  volume={74},
+  number={1},
+  pages={47},
+  year={2002},
+  publisher={APS}
+}
+
+
+@article{barabasi1999emergence,
+  title={Emergence of scaling in random networks},
+  author={Barab{\'a}si, Albert-L{\'a}szl{\'o} and Albert, R{\'e}ka},
+  journal={science},
+  volume={286},
+  number={5439},
+  pages={509--512},
+  year={1999},
+  publisher={American Association for the Advancement of Science}
+}
+
+
+@article{buldyrev2010catastrophic,
+  title={Catastrophic cascade of failures in interdependent networks},
+  author={Buldyrev, Sergey V and Parshani, Roni and Paul, Gerald and Stanley, H Eugene and Havlin, Shlomo},
+  journal={Nature},
+  volume={464},
+  number={7291},
+  pages={1025--1028},
+  year={2010},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{centola2010spread,
+  title={The spread of behavior in an online social network experiment},
+  author={Centola, Damon},
+  journal={science},
+  volume={329},
+  number={5996},
+  pages={1194--1197},
+  year={2010},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{goyal2007structural,
+  title={Structural holes in social networks},
+  author={Goyal, Sanjeev and Vega-Redondo, Fernando},
+  journal={Journal of Economic Theory},
+  volume={137},
+  number={1},
+  pages={460--492},
+  year={2007},
+  publisher={Elsevier}
+}
+
+
+@article{golub2010naive,
+  title={Naive learning in social networks and the wisdom of crowds},
+  author={Golub, Benjamin and Jackson, Matthew O},
+  journal={American Economic Journal: Microeconomics},
+  pages={112--149},
+  year={2010},
+  publisher={JSTOR}
+}
+
+
+@article{geroski2000models,
+  title={Models of technology diffusion},
+  author={Geroski, Paul A},
+  journal={Research policy},
+  volume={29},
+  number={4},
+  pages={603--625},
+  year={2000},
+  publisher={Elsevier}
+}
+
+
+
+@article{goldenberg2001talk,
+  title={Talk of the network: A complex systems look at the underlying process of word-of-mouth},
+  author={Goldenberg, Jacob and Libai, Barak and Muller, Eitan},
+  journal={Marketing letters},
+  volume={12},
+  number={3},
+  pages={211--223},
+  year={2001},
+  publisher={Springer}
+}
+
+
+@article{gonzalez2011dynamics,
+  title={The dynamics of protest recruitment through an online network},
+  author={Gonz{\'a}lez-Bail{\'o}n, Sandra and Borge-Holthoefer, Javier and Rivero, Alejandro and Moreno, Yamir},
+  journal={Scientific reports},
+  volume={1},
+  year={2011},
+  publisher={Nature Publishing Group}
+}
+@article{campbell2013word,
+  title={Word-of-mouth communication and percolation in social networks},
+  author={Campbell, Arthur},
+  journal={The American Economic Review},
+  volume={103},
+  number={6},
+  pages={2466--2498},
+  year={2013},
+  publisher={American Economic Association}
+}
+
+@article{gonzalez2011dynamics,
+  title={The dynamics of protest recruitment through an online network},
+  author={Gonz{\'a}lez-Bail{\'o}n, Sandra and Borge-Holthoefer, Javier and Rivero, Alejandro and Moreno, Yamir},
+  journal={Scientific reports},
+  volume={1},
+  year={2011},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{hethcote2000mathematics,
+  title={The mathematics of infectious diseases},
+  author={Hethcote, Herbert W},
+  journal={SIAM review},
+  volume={42},
+  number={4},
+  pages={599--653},
+  year={2000},
+  publisher={SIAM}
+}
+
+
+@article{jackson2007relating,
+  title={Relating network structure to diffusion properties through stochastic dominance},
+  author={Jackson, Matthew O and Rogers, Brian W},
+  journal={The BE Journal of Theoretical Economics},
+  volume={7},
+  number={1},
+  year={2007}
+}
+
+
+@article{jackson2007diffusion,
+  title={Diffusion of behavior and equilibrium properties in network games},
+  author={Jackson, Matthew O and Yariv, Leeat},
+  journal={The American economic review},
+  pages={92--98},
+  year={2007},
+  publisher={JSTOR}
+}
+
+
+
+
+
+
+@article{lopez2008diffusion,
+  title={Diffusion in complex social networks},
+  author={L{\'o}pez-Pintado, Dunia},
+  journal={Games and Economic Behavior},
+  volume={62},
+  number={2},
+  pages={573--590},
+  year={2008},
+  publisher={Elsevier}
+}
+
+
+@article{mendes1998non,
+  title={Non-linear optimization of biochemical pathways: applications to metabolic engineering and parameter estimation.},
+  author={Mendes, Pedro and Kell, D},
+  journal={Bioinformatics},
+  volume={14},
+  number={10},
+  pages={869--883},
+  year={1998},
+  publisher={Oxford Univ Press}
+}
+
+
+@article{moles2003parameter,
+  title={Parameter estimation in biochemical pathways: a comparison of global optimization methods},
+  author={Moles, Carmen G and Mendes, Pedro and Banga, Julio R},
+  journal={Genome research},
+  volume={13},
+  number={11},
+  pages={2467--2474},
+  year={2003},
+  publisher={Cold Spring Harbor Lab}
+}
+
+
+@article{montanari2010spread,
+  title={The spread of innovations in social networks},
+  author={Montanari, Andrea and Saberi, Amin},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={107},
+  number={47},
+  pages={20196--20201},
+  year={2010},
+  publisher={National Acad Sciences}
+}
+
+
+@article{nelson1974advertising,
+  title={Advertising as information},
+  author={Nelson, Phillip},
+  journal={The journal of political economy},
+  pages={729--754},
+  year={1974},
+  publisher={JSTOR}
+}
+
+
+
+@book{phillips1995feedback,
+  title={Feedback control systems},
+  author={Phillips, Charles L and Habor, Royce D},
+  year={1995},
+  publisher={Simon \& Schuster}
+}
+
+
+@article{pastor2001epidemic,
+  title={Epidemic spreading in scale-free networks},
+  author={Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Physical review letters},
+  volume={86},
+  number={14},
+  pages={3200},
+  year={2001},
+  publisher={APS}
+}
+
+
+@article{shcherbakov2013survey,
+  title={A survey of forecast error measures},
+  author={Shcherbakov, Maxim Vladimirovich and Brebels, Adriaan and Shcherbakova, Nataliya Lvovna and Tyukov, Anton Pavlovich and Janovsky, Timur Alexandrovich and Kamaev, Valeriy Anatol’evich},
+  journal={World Applied Sciences Journal},
+  volume={24},
+  pages={171--176},
+  year={2013},
+  publisher={Citeseer}
+}
+
+
+@article{strogatz2001exploring,
+  title={Exploring complex networks},
+  author={Strogatz, Steven H},
+  journal={Nature},
+  volume={410},
+  number={6825},
+  pages={268--276},
+  year={2001},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{sood2009functional,
+  title={Functional regression: A new model for predicting market penetration of new products},
+  author={Sood, Ashish and James, Gareth M and Tellis, Gerard J},
+  journal={Marketing Science},
+  volume={28},
+  number={1},
+  pages={36--51},
+  year={2009},
+  publisher={INFORMS}
+}
+
+
+@article{young2011dynamics,
+  title={The dynamics of social innovation},
+  author={Young, H Peyton},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={108},
+  number={Supplement 4},
+  pages={21285--21291},
+  year={2011},
+  publisher={National Acad Sciences}
+}
+
+
+@article{zhan2011parameter,
+  title={Parameter estimation in systems biology models using spline approximation},
+  author={Zhan, Choujun and Yeung, Lam F},
+  journal={BMC systems biology},
+  volume={5},
+  number={1},
+  pages={14},
+  year={2011},
+  publisher={BioMed Central Ltd}
+}
+
+
+
+@article{young2006innovation,
+  title={Innovation diffusion in heterogeneous populations},
+  author={Young, H Peyton},
+  journal={Available at SSRN 1024811},
+  year={2006}
+}
+
+
+@article{young2009innovation,
+  title={Innovation diffusion in heterogeneous populations: Contagion, social influence, and social learning},
+  author={Young, H Peyton},
+  journal={The American economic review},
+  pages={1899--1924},
+  year={2009},
+  publisher={JSTOR}
+}
+
+
+@article{may2001infection,
+  title={Infection dynamics on scale-free networks},
+  author={May, Robert M and Lloyd, Alun L},
+  journal={Physical Review E},
+  volume={64},
+  number={6},
+  pages={066112},
+  year={2001},
+  publisher={APS}
+}
+
+
+
+
+@article{newman2002spread,
+  title={Spread of epidemic disease on networks},
+  author={Newman, Mark EJ},
+  journal={Physical review E},
+  volume={66},
+  number={1},
+  pages={016128},
+  year={2002},
+  publisher={APS}
+}
+
+
+
+@article{moreno2002epidemic,
+  title={Epidemic outbreaks in complex heterogeneous networks},
+  author={Moreno, Yamir and Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={The European Physical Journal B-Condensed Matter and Complex Systems},
+  volume={26},
+  number={4},
+  pages={521--529},
+  year={2002},
+  publisher={Springer}
+}
+
+
+@article{wang2005invasion,
+  title={The invasion of language: emergence, change and death},
+  author={Wang, William SY and Minett, James W},
+  journal={Trends in ecology \& evolution},
+  volume={20},
+  number={5},
+  pages={263--269},
+  year={2005},
+  publisher={Elsevier}
+}
+
+
+
+@book{milroy1980language,
+  title={Language and social networks},
+  author={Milroy, Lesley},
+  year={1980},
+  publisher={Blackwell Oxford}
+}
+
+
+
+@inproceedings{ribeiro2014modeling,
+  title={Modeling and predicting the growth and death of membership-based websites},
+  author={Ribeiro, Bruno},
+  booktitle={Proceedings of the 23rd international conference on World Wide Web},
+  pages={653--664},
+  year={2014},
+  organization={ACM}
+}
+
+
+@article{pastor2005epidemics,
+  title={Epidemics and immunization in scale-free networks},
+  author={Pastor-Satorras, Romualdo and Vespignani, Alessandro},
+  journal={Handbook of graphs and networks: from the genome to the internet},
+  pages={111--130},
+  year={2005},
+  publisher={Wiley Online Library}
+}
+
+
+@book{kotler2010principles,
+  title={Principles of marketing},
+  author={Kotler, Philip and Armstrong, Gary},
+  year={2010},
+  publisher={Pearson Education}
+}
+
+
+@article{iribarren2011affinity,
+  title={Affinity paths and information diffusion in social networks},
+  author={Iribarren, Jos{\'e} Luis and Moro, Esteban},
+  journal={Social networks},
+  volume={33},
+  number={2},
+  pages={134--142},
+  year={2011},
+  publisher={Elsevier}
+}
+
+%-----------------------------
+% 2016/02/22
+@article{king2004scientific,
+  title={The scientific impact of nations},
+  author={King, David A},
+  journal={Nature},
+  volume={430},
+  number={6997},
+  pages={311--316},
+  year={2004},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{zhou2006emergence,
+  title={The emergence of China as a leading nation in science},
+  author={Zhou, Ping and Leydesdorff, Loet},
+  journal={Research policy},
+  volume={35},
+  number={1},
+  pages={83--104},
+  year={2006},
+  publisher={Elsevier}
+}
+
+@article{kinney2007national,
+  title={National scientific facilities and their science impact on nonbiomedical research},
+  author={Kinney, AL},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={104},
+  number={46},
+  pages={17943--17947},
+  year={2007},
+  publisher={National Acad Sciences}
+}
+ 
+ 
+@article{hirsch2005index,
+  title={An index to quantify an individual's scientific research output},
+  author={Hirsch, Jorge E},
+  journal={Proceedings of the National academy of Sciences of the United States of America},
+  volume={102},
+  number={46},
+  pages={16569--16572},
+  year={2005},
+  publisher={National Acad Sciences}
+}
+
+@article{molinari2008new,
+  title={A new methodology for ranking scientific institutions},
+  author={Molinari, Jean-Francois and Molinari, Alain},
+  journal={Scientometrics},
+  volume={75},
+  number={1},
+  pages={163--174},
+  year={2008},
+  publisher={Springer}
+}
+
+@article{hirsch2007does,
+  title={Does the h index have predictive power?},
+  author={Hirsch, Jorge E},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={104},
+  number={49},
+  pages={19193--19198},
+  year={2007},
+  publisher={National Acad Sciences}
+}
+
+
+@article{van2004sleeping,
+  title={Sleeping beauties in science},
+  author={Van Raan, Anthony FJ},
+  journal={Scientometrics},
+  volume={59},
+  number={3},
+  pages={467--472},
+  year={2004},
+  publisher={Springer}
+}
+
+@article{egghe2006theory,
+  title={Theory and practise of the g-index},
+  author={Egghe, Leo},
+  journal={Scientometrics},
+  volume={69},
+  number={1},
+  pages={131--152},
+  year={2006},
+  publisher={Akad{\'e}miai Kiad{\'o}, co-published with Springer Science+ Business Media BV, Formerly Kluwer Academic Publishers BV}
+}
+
+
+@article{radicchi2008universality,
+  title={Universality of citation distributions: Toward an objective measure of scientific impact},
+  author={Radicchi, Filippo and Fortunato, Santo and Castellano, Claudio},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={105},
+  number={45},
+  pages={17268--17272},
+  year={2008},
+  publisher={National Acad Sciences}
+}
+
+
+@article{jin2007r,
+  title={The R-and AR-indices: Complementing the h-index},
+  author={Jin, Bihui and Liang, Liming and Rousseau, Ronald and Egghe, Leo},
+  journal={Chinese science bulletin},
+  volume={52},
+  number={6},
+  pages={855--863},
+  year={2007},
+  publisher={Springer}
+}
+
+@article{zhan2016universal,
+  title={A universal model for growth of user population of products and services},
+  author={Zhan, Choujun and Tse, Chi K},
+  journal={Network Science},
+  volume={4},
+  number={4},
+  pages={491--507},
+  year={2016},
+  publisher={Cambridge University Press}
+}
+
+
+@article{bakkalbasi2006three,
+  title={Three options for citation tracking: Google Scholar, Scopus and Web of Science},
+  author={Bakkalbasi, Nisa and Bauer, Kathleen and Glover, Janis and Wang, Lei},
+  journal={Biomedical digital libraries},
+  volume={3},
+  number={1},
+  pages={7},
+  year={2006},
+  publisher={BioMed Central Ltd}
+}
+
+
+
+@article{zhan2014parameter,
+  title={A parameter estimation method for biological systems modelled by ode/dde models using spline approximation and differential evolution algorithm},
+  author={Zhan, Choujun and Situ, Wuchao and Yeung, Lam Fat and Tsang, Peter Wai-Ming and Yang, Genke},
+  journal={IEEE/ACM Transactions on Computational Biology and Bioinformatics (TCBB)},
+  volume={11},
+  number={6},
+  pages={1066--1076},
+  year={2014},
+  publisher={IEEE Computer Society Press}
+}
+
+
+\textbf{@article{zhan2016universal,
+  title={A universal model for growth of user population of products and services},
+  author={Zhan, Choujun and Tse, Chi K},
+  journal={Network Science},
+  volume={4},
+  number={4},
+  pages={491--507},
+  year={2016},
+  publisher={Cambridge University Press}
+}}
+
+
+
+
+
+
+@article{barabasi2005origin,
+  title={The origin of bursts and heavy tails in human dynamics},
+  author={Barabasi, Albert-Laszlo},
+  journal={Nature},
+  volume={435},
+  number={7039},
+  pages={207--211},
+  year={2005},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{zhi2011empirical,
+  title={Empirical analysis on the human dynamics of a large-scale short message communication system},
+  author={Zhi-Dan, Zhao and Hu, Xia and Ming-Sheng, Shang and Tao, Zhou},
+  journal={Chinese Physics Letters},
+  volume={28},
+  number={6},
+  pages={068901},
+  year={2011},
+  publisher={IOP Publishing}
+}
+
+
+ %-------------------------------------------------------------------------------
+ % url reference
+ %----------------------------------------------------------------
+ @electronic{ti2017,
+  author        = "Dota2 prize pool tracker",
+  title         = "The International 2017",
+  url           = "http://dota2.prizetrac.kr/international2017",
+  year          = "2017"
+} 
+ 
+ 
+ @electronic{videogamewiki,
+  author        = "Wiki",
+  title         = "Video game",
+  url           = "https://en.wikipedia.org/wiki/Video_game",
+  year          = "2015"
+}
+
+ @electronic{videogameconsoleswiki,
+  author        = "Wiki",
+  title         = "Video game console",
+  url           = "https://en.wikipedia.org/wiki/Video_game_console",
+  year          = "2015"
+}
+
+ @electronic{wiki:gamer,
+  author        = "Wiki",
+  title         = "Gamer",
+  url           = "https://en.wikipedia.org/wiki/Gamer",
+  year          = "2015"
+}
+
+
+ @electronic{vgchartz:ConsoleAndGame,
+  author        = "Vgchartz",
+  title         = "Gamer",
+  url           = "http://www.vgchartz.com/",
+  year          = "2015"
+}
+
+
+
+ @electronic{wiki:XBOX360Problem,
+  author        = "Wiki",
+  title         = "Xbox 360 technical problems",
+  url           = "https://en.wikipedia.org/wiki/Xbox_360_technical_problems",
+  year          = "2015"
+}
+
+
+
+ @electronic{wiki:ScientificCitation,
+  author        = "wiki",
+  title         = "Scientific Citation",
+  url           = "https://en.wikipedia.org/wiki/Scientific_citation",
+  year          = "2015"
+}
+
+
+ @electronic{wiki:AcademicPublishing,
+  author        = "Wiki",
+  title         = "Academic publishing",
+  url           = "https://en.wikipedia.org/wiki/Academic_publishing",
+  year          = "2015"
+}
+
+
+
+ @electronic{dota2,
+  author        = "Wiki",
+  title         = "Dota 2",
+  url           = "https://en.wikipedia.org/wiki/Dota_2",
+  year          = "2015"
+}
+
+
+ @electronic{TheInternational,
+  author        = "Wiki",
+  title         = "The International (Dota 2)",
+  url           = "https://en.wikipedia.org/wiki/The_International_(Dota_2)",
+  year          = "2015"
+}
+
+ @electronic{TheInternational2015,
+  author        = "Wiki",
+  title         = "The International (Dota 2)",
+  url           = "http://blog.dota2.com/page/2/",
+  year          = "2016"
+}
+
+
+An example of a IEEEtran control entry which can change some IEEEtran.bst
+settings. An entry like this must be cited via \bstctlcite{} command
+before the first real \cite{}. The same entry key cannot be called twice
+(just like multiple \cite{} of the same entry key place only one entry
+in the bibliography.)
+The available control fields are:
+
+CTLuse_article_number
+"no" turns off the display of the number for articles.
+"yes" enables
+
+CTLuse_paper
+"no" turns off the display of the paper and type fields in inproceedings.
+"yes" enables
+
+CTLuse_forced_etal 
+"no" turns off the forced use of "et al."
+"yes" enables
+
+CTLmax_names_forced_etal
+The maximum number of names that can be present beyond which an "et al."
+usage is forced. Be sure that CTLnames_show_etal (below)
+is not greater than this value!
+
+CTLnames_show_etal
+The number of names that will be shown with a forced "et al.".
+Must be less than or equal to CTLmax_names_forced_etal
+
+CTLuse_alt_spacing 
+"no" turns off the alternate interword spacing for entries with URLs.
+"yes" enables
+
+CTLalt_stretch_factor
+If alternate interword spacing for entries with URLs is enabled, this is
+the interword spacing stretch factor that will be used. For example, the
+default "4" here means that the interword spacing in entries with URLs can
+stretch to four times normal. Does not have to be an integer.
+
+CTLdash_repeated_names
+"no" turns off the "dashification" of repeated (i.e., identical to those
+of the previous entry) names. IEEE normally does this.
+"yes" enables
+
+CTLname_format_string
+The name format control string as explained in the BibTeX style hacking
+guide.
+IEEE style "{f.~}{vv~}{ll}{, jj}" is the default,
+
+CTLname_latex_cmd
+A LaTeX command that each name will be fed to (e.g., "\textsc").
+Leave empty if no special font is desired for the names.
+The default is empty.
+
+CTLname_url_prefix
+The prefix text used before URLs.
+The default is "[Online]. Available:" A space will be inserted after this
+text. If this space is not wanted, just use \relax at the end of the
+prefix text.
+
+
+Those fields that are not to be changed can be left out.
+@IEEEtranBSTCTL{IEEEexample:BSTcontrol,
+  CTLuse_article_number     = "yes",
+  CTLuse_paper              = "yes",
+  CTLuse_forced_etal        = "no",
+  CTLmax_names_forced_etal  = "10",
+  CTLnames_show_etal        = "1",
+  CTLuse_alt_spacing        = "yes",
+  CTLalt_stretch_factor     = "4",
+  CTLdash_repeated_names    = "yes",
+  CTLname_format_string     = "{f.~}{vv~}{ll}{, jj}",
+  CTLname_latex_cmd         = "",
+  CTLname_url_prefix        = "[Online]. Available:"
+}
+
+

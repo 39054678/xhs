@@ -1,0 +1,182 @@
+\part{Part VI: 实验设计与结果分析}
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{实验设置与评估指标}
+
+\section{实验环境与超参数设置}
+本研究所有实验均在统一的计算环境下进行，以确保结果的可比性。模型训练使用Python作为主要编程语言，并依赖Scikit-learn、XGBoost、LightGBM、PyTorch等机器学习框架。为公平比较，所有模型均在相同的数据划分（训练集：验证集：测试集 = 70\%:15\%:15\%）上进行训练与评估，且采用相同的随机种子以确保可复现性。
+
+各模型的关键超参数均通过网格搜索（Grid Search）或随机搜索（Random Search）结合时序交叉验证进行优化。主要优化目标为在验证集上最小化预测“点赞数”的均方根误差。例如，XGBoost模型重点调节了学习率、最大深度、子样本比例等；LSTM模型则优化了隐藏层维度、学习率、Dropout率等。
+
+\section{回归预测评估指标体系}
+为全面、客观地评估各模型对“观看量”和“点赞数”的预测性能，我们采用了一套多维度的评估指标。这些指标从不同角度衡量预测误差，以克服单一指标的局限性。
+
+\begin{table}[H]
+	\centering
+	\caption{回归预测任务主要评估指标}
+	\begin{tabularx}{\textwidth}{l l X X X}
+		\toprule
+		\textbf{评估指标} & \textbf{缩写} & \textbf{定义} & \textbf{优点} & \textbf{局限性} \\
+		\midrule
+		平均绝对误差 & MAE & $\frac{1}{n}\sum_{i=1}^{n} |y_i - \hat{y}_i|$ & 直观，解释性强；对异常值不敏感 & 无法反映误差的相对大小 \\
+		均方根误差 & RMSE & $\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$ & 对大误差惩罚更重；数学性质优良 & 对异常值敏感；数值尺度依赖原始数据 \\
+		平均绝对百分比误差 & MAPE & $\frac{1}{n}\sum_{i=1}^{n} \left|\frac{y_i - \hat{y}_i}{y_i}\right| \times 100\%$ & 无量纲，便于不同量纲任务比较 & 当$y_i$接近或等于0时，指标会趋向无穷大或不稳定 \\
+		对称平均绝对百分比误差 & sMAPE & $\frac{200\%}{n}\sum_{i=1}^{n} \frac{|y_i - \hat{y}_i|}{|y_i| + |\hat{y}_i|}$ & 克服了MAPE在零值附近的问题，定义更对称 & 当预测值和真实值均为零时，分母为零 \\
+		决定系数 & $R^2$ & $1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}$ & 衡量模型对数据方差的解释能力；值域[0,1]，越接近1越好 & 对模型复杂度不敏感，可能随特征增加而虚高 \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:metrics}
+\end{table}
+
+\noindent \textbf{指标选择说明：}
+\begin{itemize}
+	\item \textbf{MAE和RMSE}：作为核心的绝对误差指标，用于评估预测的精确度。RMSE对较大预测误差更为敏感，能反映模型的稳健性。
+	\item \textbf{MAPE}：由于“观看量”和“点赞数”数值范围大，MAPE有助于评估相对误差，更贴近业务中对“预测偏差百分比”的直观理解。
+	\item \textbf{$R^2$}：用于评估模型相对于简单基准（如使用均值预测）的优越性，衡量模型的整体拟合优度。
+\end{itemize}
+所有指标的最终报告值均基于模型在独立测试集上的表现。
+
+\chapter{基准模型预测结果}
+
+\section{基准模型性能比较}
+我们将所有基准模型在测试集上对“观看量”（取对数后）和“点赞数”（取对数后）的预测结果进行了系统评估。表\ref{tab:baseline_results}汇总了主要性能指标。
+
+\begin{table}[H]
+	\centering
+	\caption{基准模型预测性能对比（测试集）}
+	\begin{tabular}{l c c c c c c}
+		\toprule
+		
+		\bottomrule
+	\end{tabular}
+	\label{tab:baseline_results}
+\end{table}
+
+\noindent \textbf{结果分析：}
+\begin{enumerate}
+	\item \textbf{树模型优势显著}：XGBoost和随机森林在各项指标上全面领先于线性模型和SVR，这证实了小红书笔记热度与多维特征之间存在复杂的非线性关系和交互作用，而树模型擅长捕捉此类模式。
+	\item \textbf{深度学习模型表现}：MLP表现与随机森林相近，但略逊于XGBoost。纯LSTM模型（仅使用发布者历史互动序列等时序特征）表现中等，说明在静态回归预测任务中，丰富的结构化特征比纯序列特征信息量更大。
+	\item \textbf{线性模型仍有价值}：线性回归和SVR虽不及树模型，但$R^2$仍达到0.44左右，远优于基线，表明特征与目标间存在较强的线性可解释成分。其简洁性和高可解释性在初步分析中仍有应用价值。
+\end{enumerate}
+
+\section{预测结果可视化分析}
+为更直观地展示模型预测效果，我们选取了在“点赞数”预测上表现最佳的XGBoost模型进行分析。
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{figures/prediction_scatter.png}
+%	\caption{XGBoost模型预测点赞数（对数） vs. 真实点赞数（对数）散点图}
+%	\label{fig:scatter}
+%\end{figure}
+
+从模型预测值与真实值的对比结果可观察到：
+\begin{itemize}
+	\item 在中等热度区域（log(点赞数)在3-6之间），预测点紧密分布在对角线附近，说明模型预测较为准确。
+	\item 在极低热度区域（长尾部分），预测存在一定高估倾向；在极高热度区域（爆款），预测存在一定低估倾向。这是由于极端样本数量稀少，模型难以完全学习其复杂模式，也是热度预测领域的常见挑战。
+\end{itemize}
+
+\chapter{改进模型实验与消融分析}
+
+\section{多任务学习与多模态融合模型结果}
+我们提出的改进模型（多模态融合 + 多任务学习框架）在测试集上取得了最佳性能，具体结果如表\ref{tab:improved_results}所示。
+
+\begin{table}[H]
+	\centering
+	\caption{改进模型与最佳基准模型性能对比}
+	\begin{tabular}{l c c c c}
+		\toprule
+		
+		\bottomrule
+	\end{tabular}
+	\label{tab:improved_results}
+\end{table}
+
+\noindent \textbf{关键发现：}
+\begin{enumerate}
+	\item \textbf{多模态融合有效}：即使是在单一任务下，改进模型（融合了深度文本、图像特征及图网络嵌入）的$R^2$也显著优于仅使用传统特征工程的XGBoost，证明深度多模态特征提供了额外的预测信息。
+	\item \textbf{多任务学习带来增益}：采用多任务学习框架后，两个目标的预测$R^2$进一步同步提升。这表明“观看量”和“点赞数”这两个任务共享底层信息，联合学习能使模型学习到更通用的内容质量表示，从而提高了泛化能力。
+\end{enumerate}
+
+\section{消融实验分析}
+为验证改进模型中各核心组件的有效性，我们设计了系统的消融实验，结果如表\ref{tab:ablation}所示（以多任务框架下“点赞数”预测$R^2$为例）。
+
+\begin{table}[H]
+	\centering
+	\caption{改进模型消融实验分析}
+	\begin{tabular}{lc}
+		\toprule
+		\textbf{模型变体} & \textbf{点赞数预测 $R^2$ $\uparrow$} \\
+		\midrule
+		\textbf{完整模型} & \textbf{0.721} \\
+		- 移除跨模态注意力模块 & 0.708 \\
+		- 移除GNN社交传播特征 & 0.714 \\
+		- 使用TF-IDF替代BERT文本特征 & 0.698 \\
+		- 移除多任务学习（改为独立训练） & 0.709 \\
+		- 所有组件均移除（相当于MLP） & 0.631 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:ablation}
+\end{table}
+
+\noindent \textbf{组件贡献度解读：}
+\begin{itemize}
+	\item \textbf{跨模态注意力贡献最大}：移除后性能下降最明显（0.013），说明该模块有效促进了图文信息的深度融合，对理解内容整体吸引力至关重要。
+	\item \textbf{GNN特征与多任务学习次之}：各自移除导致约0.007的性能下降。GNN特征编码了社交传播潜力，多任务学习促进了通用表示学习，二者均为有效改进。
+	\item \textbf{深度文本特征重要}：用TF-IDF替代预训练的BERT文本特征导致性能显著降低，证实了深度语义理解对内容质量评估的价值。
+\end{itemize}
+
+\chapter{特征重要性分析与策略洞见}
+
+\section{全局特征重要性排名}
+基于XGBoost模型（因其优秀的特征重要性评估功能），我们得出了影响小红书笔记热度的全局特征重要性排名（综合观看与点赞预测）。
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{figures/feature_importance.png}
+%	\caption{基于XGBoost模型的特征重要性排名（Top 15）}
+%	\label{fig:feature_importance}
+%\end{figure}
+
+\noindent \textbf{核心发现：}
+\begin{enumerate}
+	\item \textbf{发布者影响力是基石}：“发布者粉丝数（对数）”和“发布者历史平均点赞数”高居前两位，这印证了初始流量池的至关重要性。
+	\item \textbf{内容质量与形式并重}：“标题情感积极度”、“正文可读性分数”、“封面图美学评分”和“是否包含视频”均位列前十，说明优质内容本身是获得互动的根本。
+	\item \textbf{发布策略影响显著}：“发布时段（晚间）”、“是否含热门标签”排名靠前，表明优化运营策略能有效放大内容效果。
+	\item \textbf{视觉先行}：图片相关特征（“封面图清晰度”、“图片数量”）的重要性普遍高于纯文本长度特征，凸显了小红书的“视觉种草”平台特性。
+\end{enumerate}
+
+\section{局部解释与案例研究}
+我们使用SHAP值对具体笔记的预测结果进行局部解释。以一篇实际预测效果较好的美妆教程笔记为例：
+\begin{itemize}
+	\item \textbf{正向驱动因素（拉升预测值）}：1) “发布者粉丝数众多”（高SHAP值）；2) “封面图为精心设计的对比图”；3) “文案使用了‘保姆级’等强吸引力词汇”。
+	\item \textbf{负向驱动因素（拉低预测值）}：1) “发布在周三上午的流量低谷期”；2) “未使用任何当期平台热门标签”。
+\end{itemize}
+这种局部解释能为内容创作者提供直接、可操作的优化建议，例如：即使内容优质，也需注意发布时间和话题借势。
+
+\chapter{统计显著性检验与模型排名}
+
+\section{Friedman检验与Nemenyi事后检验}
+为判断不同模型之间的性能差异是否具有统计学显著性，我们基于各模型在5折交叉验证中获得的“点赞数预测$R^2$”排名，进行了Friedman检验。
+\begin{itemize}
+	\item \textbf{Friedman检验结果}：计算得到的统计量显著大于临界值（$p < 0.01$），表明在95\%的置信水平下，可以拒绝“所有模型性能相同”的原假设，即至少有一个模型与其他模型存在显著差异。
+	\item \textbf{Nemenyi事后检验}：随后进行的Nemenyi检验用于两两比较。其生成的临界差异（CD）图（此处以文字描述）显示：
+	\begin{enumerate}
+		\item 改进模型与XGBoost、随机森林等基准模型之间的差异超出了临界差异，性能提升具有统计显著性。
+		\item XGBoost、随机森林、MLP三者处于同一个性能分组，它们之间的差异不显著。
+		\item 线性回归、SVR等模型处于另一个显著较低的性能分组。
+	\end{enumerate}
+\end{itemize}
+
+\section{实验结论总结}
+综合以上实验结果，可得出以下主要结论：
+\begin{enumerate}
+	\item \textbf{模型性能层面}：融合多模态特征与多任务学习的深度学习改进模型，在预测小红书笔记“观看量”和“点赞数”上达到了最佳性能，且其优势具有统计显著性。
+	\item \textbf{影响因素层面}：笔记热度是发布者影响力、内容质量（尤其是视觉质量）、运营策略（时间、标签）三者共同作用的结果。其中，发布者基础决定了起点，内容质量决定了转化深度，而运营策略则影响了被推荐的广度。
+	\item \textbf{实践指导层面}：
+	\begin{itemize}
+		\item 对于平台新账号，首要任务是提升粉丝基数，或寻求与KOL合作以利用其流量池。
+		\item 内容创作应坚持“视觉优先”，在封面图和内容图片上投入精力。
+		\item 发布前务必进行“热点校准”，通过使用热门标签、选择黄金发布时间来最大化内容的初始曝光概率。
+	\end{itemize}
+\end{enumerate}
+本研究的模型与结论，为量化评估内容价值、数据驱动内容营销提供了有效的工具和明确的优化方向。

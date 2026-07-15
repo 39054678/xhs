@@ -1,0 +1,29 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary workspace
+tmp/
+
+# LaTeX generated files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.ilg
+*.ind
+*.idx
+*.log
+*.out
+*.ptc
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*~

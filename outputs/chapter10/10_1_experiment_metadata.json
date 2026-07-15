@@ -1,0 +1,21 @@
+{
+  "raw_rows": 323598,
+  "deduplicated_rows": 199473,
+  "usable_rows": 199473,
+  "viral_cutoff": 2134.0,
+  "positive_rate": 0.2000772034310408,
+  "features": [
+    "log_fans",
+    "title_len",
+    "body_len",
+    "tag_count",
+    "exclamation_count",
+    "question_count",
+    "emoji_count",
+    "emotion_positive",
+    "weekday",
+    "has_location"
+  ],
+  "target_definition": "点赞数 + 收藏数 + 4×评论数达到样本第80百分位",
+  "modeling_rows": 60000
+}

@@ -1,0 +1,221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.3 (8/8/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+\usepackage[UTF8]{ctex}
+
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage[]{algorithm2e}
+\usepackage{blindtext}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{framed}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{supertabular}%长表格绘制
+%\usepackage{enumerate}
+%\usepackage{hyperref}
+
+%\usepackage{changes}
+%\definechangesauthor[name={ZYF}, color=orange]{zyf}
+
+%-----------------------------------------------------------------------
+% This part is utilized to generate color box.
+% These codes are writed by Dr. Zhan
+%----------------------------------------------------------------------
+\usepackage{paralist}
+
+\newtcolorbox{red}{
+notitle,
+colback=red!10
+}
+
+\newtcolorbox{blue}{
+notitle,
+colback=blue!10
+}
+
+\newtcolorbox{green}{
+notitle,
+colback=green!10
+}
+
+
+\newtcolorbox{gray}{
+notitle,
+colback=gray!10
+}
+%--------------------------------------------------------------
+
+%-----------------------------------------------------
+\usepackage{yhmath}
+%\usepackage{algorithm}
+%\usepackage{algorithmicx,algpseudocode}
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+	language=Python,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=left,%设置行号位置none不显示行号
+	%numberstyle=\tiny\courier, %设置行号大小
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	escapeinside=``,%逃逸字符(1左面的键)，用于显示中文例如在代码中`中文...`
+	tabsize=4,
+	extendedchars=false %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+}
+
+%\usepackage{changes}
+%\definechangesauthor[name={ZYF}, color=orange]{zyf}
+
+\usepackage{pythonhighlight}
+
+%\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+%\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+	\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
+	\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering 小红书帖子热度研究报告\\[15pt] % Book title
+			{\Large 实验计划书}\\[20pt] % Subtitle
+			{\huge }}}; % Author name
+\end{tikzpicture}
+\vfill
+\endgroup
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2021 Choujun Zhan\\ % Copyright notice
+
+\noindent \textsc{Published by Publisher}\\ % Publisher
+
+\noindent \textsc{book-website.com}\\ % URL
+
+%\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+\noindent \textit{First printing, } % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+%\input{parts/new_content_tmp}
+\input{parts/Part_Background}
+
+\input{parts/Part_DataCollection}
+
+\input{parts/Part_DataAnalysis}
+
+\input{parts/Part_ClassificationModel}
+
+\input{parts/Part_PredictionModel}
+
+\input{parts/Part_ExperimentalResults}
+
+
+
+
+\input{parts/Part_ConclusionAndFutureWorks}
+
+
+% Bibliography and index output are intentionally omitted until the report
+% contains actual \cite and \index commands.  Running BibTeX/MakeIndex on the
+% empty template sections caused latexmk to fail despite a valid main PDF.
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
