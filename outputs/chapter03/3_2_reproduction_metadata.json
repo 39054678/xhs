@@ -1,0 +1,12 @@
+{
+  "raw_rows": 323598,
+  "rows_with_nonmissing_body": 222837,
+  "rows_after_suspicious_fan_filter": 205677,
+  "feature_sample_rows": 25000,
+  "ols_rows": 20000,
+  "tfidf_vocabulary_size": 10000,
+  "ols_r_squared": 0.07098171371013129,
+  "ols_adjusted_r_squared": 0.07070291064317091,
+  "condition_number": 8.639236872380788,
+  "deduplication": "none (historical Chapter 3.2 convention)"
+}

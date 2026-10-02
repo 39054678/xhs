@@ -142,6 +142,11 @@ colback=gray!10
 
 \begin{document}
 
+% Babel selects English at document start, so localize generated labels here.
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\bibname}{参考文献}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -208,10 +213,11 @@ colback=gray!10
 
 \input{parts/Part_ConclusionAndFutureWorks}
 
+\cleardoublepage
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography/bibliography}
 
-% Bibliography and index output are intentionally omitted until the report
-% contains actual \cite and \index commands.  Running BibTeX/MakeIndex on the
-% empty template sections caused latexmk to fail despite a valid main PDF.
+% Index output remains disabled until the report contains actual \index entries.
 
 %----------------------------------------------------------------------------------------
 

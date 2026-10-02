@@ -1,0 +1,18 @@
+{
+  "raw_rows": 323598,
+  "rows_after_interaction_clean": 313003,
+  "rows_removed_by_suspicious_fan_heuristic": 15972,
+  "rows_after_suspicious_fan_filter": 297031,
+  "rows_with_valid_date": 296356,
+  "rows_with_valid_location": 119444,
+  "fan_90th_percentile": 87000.0,
+  "weekday_anova_f": 946.5559745099937,
+  "weekday_anova_p": 0.0,
+  "weekday_eta_squared": 0.01880398351079165,
+  "holiday_welch_t": 18.754814806323864,
+  "holiday_welch_p": 4.86465092356386e-77,
+  "holiday_cohens_d": 0.19596364418612705,
+  "four_date_types_anova_f": 305.5342301775379,
+  "four_date_types_anova_p": 4.490170229037648e-198,
+  "deduplication": "none (historical Chapter 6 convention)"
+}
