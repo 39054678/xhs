@@ -1,0 +1,35 @@
+{
+  "raw_rows": 323598,
+  "deduplicated_usable_rows": 199473,
+  "valid_date_rows": 199075,
+  "valid_author_rows": 199467,
+  "unique_authors": 122837,
+  "viral_cutoff": 2134.0,
+  "features": [
+    "log_fans",
+    "title_len",
+    "body_len",
+    "tag_count",
+    "exclamation_count",
+    "question_count",
+    "emoji_count",
+    "emotion_positive",
+    "weekday",
+    "has_location"
+  ],
+  "target_definition": "点赞数 + 收藏数 + 4×评论数",
+  "time_split": {
+    "train_rows": 158663,
+    "test_rows": 40412,
+    "train_end": "2024-07-22",
+    "test_start": "2024-07-23",
+    "test_end": "2024-10-14"
+  },
+  "author_group_split": {
+    "train_rows": 159617,
+    "test_rows": 39850,
+    "train_authors": 98269,
+    "test_authors": 24568,
+    "overlap_authors": 0
+  }
+}

@@ -1,4 +1,9 @@
+from pathlib import Path
+
 import nbformat as nbf
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 nb = nbf.v4.new_notebook()
 cells = []
@@ -14,7 +19,9 @@ cells.append(nbf.v4.new_markdown_cell("""# 第8章 多维度相关性分析（8.
 数据限制：CSV 中没有可靠的图片数量、认证状态和发布小时，因此不分析这些变量。分析只读取“笔记详细信息”文件，排除 ID、筛选中间文件和相关矩阵，并按笔记链接去重。"""))
 
 cells.append(nbf.v4.new_code_cell("""from pathlib import Path
-import glob, os, re, warnings
+from contextlib import ExitStack
+from zipfile import ZipFile
+import re, warnings
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -30,10 +37,21 @@ plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'Arial Unicode M
 plt.rcParams['axes.unicode_minus'] = False
 sns.set_theme(style='whitegrid', font='SimHei')
 
-DATA_DIR = Path(r'C:\\Users\\fire\\all2')
-OUTPUT_DIR = Path('outputs/chapter08')
+def find_project_root():
+    # 从当前工作目录向上定位仓库，避免依赖某台电脑的绝对路径。
+    cwd = Path.cwd().resolve()
+    for candidate in (cwd, *cwd.parents):
+        if (candidate / 'data' / 'raw').is_dir() and (candidate / 'notebooks').is_dir():
+            return candidate
+    raise FileNotFoundError('未找到项目根目录；请从本仓库或其子目录启动 Jupyter。')
+
+PROJECT_ROOT = find_project_root()
+DATA_DIR = PROJECT_ROOT / 'data' / 'raw'
+OUTPUT_DIR = PROJECT_ROOT / 'outputs' / 'chapter08'
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 RANDOM_STATE = 42
+print('项目根目录：', PROJECT_ROOT)
+print('原始数据目录：', DATA_DIR)
 print('输出目录：', OUTPUT_DIR.resolve())"""))
 
 cells.append(nbf.v4.new_markdown_cell("""## 0. 数据读取、去重与特征构造
@@ -42,15 +60,43 @@ cells.append(nbf.v4.new_markdown_cell("""## 0. 数据读取、去重与特征构
 
 “爆款”定义为清洗后样本中互动量位于前 10% 的笔记。这是样本内相对定义，不代表平台官方标准。"""))
 
-cells.append(nbf.v4.new_code_cell("""all_files = glob.glob(str(DATA_DIR / '*.csv'))
-detail_files = [f for f in all_files if '笔记详细信息' in os.path.basename(f)]
+cells.append(nbf.v4.new_code_cell("""zip_files = sorted(DATA_DIR.glob('*.zip'))
+if not zip_files:
+    raise FileNotFoundError(f'未在 {DATA_DIR} 找到 ZIP 数据包')
 
+# 保持原分析口径：只接收文件名含“笔记详细信息”的 CSV。
+# 这会排除 ids、filtered_ids、相关矩阵等中间文件。
+required_columns = {
+    '具体链接', '编号', '文案（标题）', '文案（正文）', '博主名称', '标签词',
+    '相对准确点赞数', '相对准确评论数', '相对准确收藏数', '相对准确粉丝数',
+    '情感预测', '推断笔记发布日期', '笔记发布地'
+}
 frames = []
-for f in detail_files:
-    try:
-        frames.append(pd.read_csv(f, encoding='utf-8-sig', low_memory=False))
-    except Exception as e:
-        print('跳过：', os.path.basename(f), e)
+detail_files = []
+with ExitStack() as stack:
+    archives = {zip_path: stack.enter_context(ZipFile(zip_path)) for zip_path in zip_files}
+    detail_members = []
+    for zip_path, archive in archives.items():
+        for member in archive.infolist():
+            member_name = Path(member.filename).name
+            if member.is_dir() or not member_name.lower().endswith('.csv'):
+                continue
+            if '笔记详细信息' not in member_name:
+                continue
+            detail_members.append((member_name, zip_path, member.filename))
+
+    # 按文件名排序，避免 ZIP 内部成员顺序影响重复链接保留哪一条记录。
+    for member_name, zip_path, member_path in sorted(detail_members):
+        with archives[zip_path].open(member_path) as source:
+            frame = pd.read_csv(source, encoding='utf-8-sig', low_memory=False)
+        missing = required_columns.difference(frame.columns)
+        if missing:
+            raise ValueError(f'{zip_path.name}/{member_path} 缺少字段：{sorted(missing)}')
+        frames.append(frame)
+        detail_files.append(f'{zip_path.name}/{member_path}')
+
+if not frames:
+    raise RuntimeError('ZIP 数据包中未识别到“笔记详细信息”CSV')
 
 df = pd.concat(frames, ignore_index=True)
 before = len(df)
@@ -62,7 +108,7 @@ with_link = df.loc[has_link].drop_duplicates('具体链接')
 without_link = df.loc[~has_link].drop_duplicates(['编号', '文案（标题）', '博主名称'])
 df = pd.concat([with_link, without_link], ignore_index=True)
 
-print(f'读取详情文件：{len(detail_files)} 个')
+print(f'读取数据包：{len(zip_files)} 个；详情文件：{len(detail_files)} 个')
 print(f'去重前：{before:,} 行；去重后：{len(df):,} 行；移除：{before-len(df):,} 行')"""))
 
 cells.append(nbf.v4.new_code_cell("""def numeric(col):
@@ -281,7 +327,7 @@ nb['metadata'] = {
     'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
     'language_info': {'name': 'python', 'version': '3'}
 }
-NOTEBOOK_PATH = Path('notebooks/chapter08/chapter8_correlation_analysis.ipynb')
+NOTEBOOK_PATH = PROJECT_ROOT / 'notebooks/chapter08/chapter8_correlation_analysis.ipynb'
 NOTEBOOK_PATH.parent.mkdir(parents=True, exist_ok=True)
 nbf.write(nb, NOTEBOOK_PATH)
-print(f'Created {NOTEBOOK_PATH}')
+print(f'Created {NOTEBOOK_PATH.relative_to(PROJECT_ROOT)}')

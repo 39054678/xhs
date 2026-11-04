@@ -1,6 +1,11 @@
 # Jupyter
 .ipynb_checkpoints/
 
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
 # Temporary workspace
 tmp/
 
@@ -9,6 +14,7 @@ tmp/
 *.bbl
 *.bcf
 *.blg
+*.brf
 *.dvi
 *.fdb_latexmk
 *.fls

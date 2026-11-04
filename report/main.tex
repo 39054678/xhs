@@ -142,6 +142,11 @@ colback=gray!10
 
 \begin{document}
 
+% Babel selects English at document start, so localize generated labels here.
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\bibname}{参考文献}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -151,27 +156,24 @@ colback=gray!10
 \begin{tikzpicture}[remember picture,overlay]
 	\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
 	\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering 小红书帖子热度研究报告\\[15pt] % Book title
-			{\Large 实验计划书}\\[20pt] % Subtitle
+			{\Large 数据分析与预测模型实证研究}\\[20pt] % Subtitle
 			{\huge }}}; % Author name
 \end{tikzpicture}
 \vfill
 \endgroup
 %----------------------------------------------------------------------------------------
-%	COPYRIGHT PAGE
+%	REPORT INFORMATION PAGE
 %----------------------------------------------------------------------------------------
 
 \newpage
 ~\vfill
 \thispagestyle{empty}
 
-\noindent Copyright \copyright\ 2021 Choujun Zhan\\ % Copyright notice
+\noindent \textbf{研究主题：} 小红书笔记热度影响因素分析与发布前预测\\[8pt]
 
-\noindent \textsc{Published by Publisher}\\ % Publisher
+\noindent \textbf{研究范围：} 数据清洗、探索性分析、分类模型、回归模型与可解释性分析\\[8pt]
 
-\noindent \textsc{book-website.com}\\ % URL
-
-%\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
-\noindent \textit{First printing, } % Printing/edition date
+\noindent \textbf{复现说明：} 数据、Notebook、机器可读实验输出与报告源码均按项目目录归档。
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
@@ -211,10 +213,11 @@ colback=gray!10
 
 \input{parts/Part_ConclusionAndFutureWorks}
 
+\cleardoublepage
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography/bibliography}
 
-% Bibliography and index output are intentionally omitted until the report
-% contains actual \cite and \index commands.  Running BibTeX/MakeIndex on the
-% empty template sections caused latexmk to fail despite a valid main PDF.
+% Index output remains disabled until the report contains actual \index entries.
 
 %----------------------------------------------------------------------------------------
 

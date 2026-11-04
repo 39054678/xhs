@@ -1,0 +1,13 @@
+{
+  "raw_rows": 323598,
+  "rows_after_interaction_clean": 313003,
+  "rows_after_suspicious_fan_filter": 297031,
+  "readability_sample_rows": 50000,
+  "readability_valid_rows": 49912,
+  "ols_rows": 20000,
+  "ols_r_squared": 0.04799119309112354,
+  "robust_ols_rows": 20000,
+  "robust_ols_r_squared": 0.04886561308204529,
+  "readability_method": "cntext-compatible fog_index behavior, vendored from official implementation",
+  "deduplication": "none (historical Chapter 3.1 convention)"
+}
